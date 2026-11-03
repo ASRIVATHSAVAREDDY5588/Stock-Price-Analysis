@@ -1,0 +1,572 @@
+{
+  "full_2000_2026_ytd": {
+    "period_label": "2000\u20132026 YTD",
+    "start_date": "2000-01-03",
+    "end_date": "2026-11-02",
+    "trading_days": 6615,
+    "return_observations": 6614,
+    "years": 26.25,
+    "asset": {
+      "initial_price": 13.1835,
+      "final_price": 1262.0,
+      "cumulative_return": 94.72571775325217,
+      "cagr": 0.18978299477037108,
+      "daily_mean": 0.0009013393534097973,
+      "annualized_volatility": 0.32710858990051483,
+      "skewness": 0.38653416903548915,
+      "excess_kurtosis": 8.445118716184412,
+      "jarque_bera": {
+        "stat": 19819.309787213457,
+        "p_value": 0.0
+      },
+      "max_drawdown": -0.6818019480721143,
+      "mdd_peak_date": "2008-01-14",
+      "mdd_trough_date": "2008-10-24",
+      "mdd_recovery_date": "2017-07-07",
+      "mdd_recovery_days": 3462,
+      "var_95_hist": 0.029300986256991624,
+      "var_99_hist": 0.052576237810656984,
+      "var_95_norm": 0.03298979470464409,
+      "var_99_norm": 0.04703153830386325,
+      "es_95": 0.044736970076138693,
+      "es_99": 0.07570520009541981,
+      "sharpe_ratio": 0.49566878420582156
+    },
+    "benchmark": {
+      "initial_level": 1592.2,
+      "final_level": 23276.6504,
+      "cumulative_return": 13.619174978017835,
+      "cagr": 0.10758741872352529,
+      "annualized_volatility": 0.2155499002129854,
+      "max_drawdown": -0.5985591323177377,
+      "sharpe_ratio": 0.28072143653522513
+    },
+    "capm_relative": {
+      "beta": 1.1012672376077925,
+      "alpha_ann": 0.08891804133298317,
+      "correlation": 0.7256857523869511,
+      "tracking_error": 0.22611537327353595,
+      "information_ratio": 0.36351166599987117
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.0009013393534097973,
+        "sigma": 0.02060434649183149,
+        "loglik": 16292.363409192836,
+        "aic": -32580.726818385672,
+        "bic": -32567.13293059859,
+        "ks_stat": 0.06328903018865317,
+        "ks_p": 1.7862302108905382e-23
+      },
+      "student_t": {
+        "df": 3.6376310369975435,
+        "loc": 0.0005987370570593822,
+        "scale": 0.013960447942618843,
+        "loglik": 16948.474654866623,
+        "aic": -33890.949309733245,
+        "bic": -33870.55847805262,
+        "ks_stat": 0.008065545098661309,
+        "ks_p": 0.7795530772251229
+      },
+      "delta_aic_t_vs_norm": -1310.222491347573,
+      "gaussian_mixture": {
+        "loglik": 16861.885407762507,
+        "aic": -33713.770815525015,
+        "bic": -33679.78609605731,
+        "weights": [
+          0.31302595193519794,
+          0.686974048064802
+        ],
+        "annual_vols": [
+          0.5060410145373633,
+          0.1975755509824759
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 9.178039944181272,
+      "strat_cagr": 0.09241387040583104,
+      "strat_annual_vol": 0.2281253765188456,
+      "trade_count": 166,
+      "win_rate": 0.43373493975903615
+    }
+  },
+  "period_2000_2009": {
+    "period_label": "2000\u20132009",
+    "start_date": "2000-01-03",
+    "end_date": "2009-12-31",
+    "trading_days": 2481,
+    "return_observations": 2480,
+    "years": 9.85,
+    "asset": {
+      "initial_price": 13.1835,
+      "final_price": 220.6319,
+      "cumulative_return": 15.735457200288238,
+      "cagr": 0.3313346990367141,
+      "daily_mean": 0.00146147287217465,
+      "annualized_volatility": 0.40556008514811626,
+      "skewness": 0.3573399672045508,
+      "excess_kurtosis": 6.952717994424262,
+      "jarque_bera": {
+        "stat": 5047.942341592586,
+        "p_value": 0.0
+      },
+      "max_drawdown": -0.6818019480721143,
+      "mdd_peak_date": "2008-01-14",
+      "mdd_trough_date": "2008-10-24",
+      "mdd_recovery_date": "Not yet recovered",
+      "mdd_recovery_days": null,
+      "var_95_hist": 0.03610559204572351,
+      "var_99_hist": 0.0683964591012214,
+      "var_95_norm": 0.04055258360841424,
+      "var_99_norm": 0.057959808980483064,
+      "es_95": 0.05663167065582002,
+      "es_99": 0.08990844545203558,
+      "sharpe_ratio": 0.7478328733392133
+    },
+    "benchmark": {
+      "initial_level": 1592.2,
+      "final_level": 5201.0498,
+      "cumulative_return": 2.266580705941464,
+      "cagr": 0.12776202543638004,
+      "annualized_volatility": 0.2810197964604393,
+      "max_drawdown": -0.5985591323177377,
+      "sharpe_ratio": 0.33748332512644874
+    },
+    "capm_relative": {
+      "beta": 1.1018145277453104,
+      "alpha_ann": 0.19217768571951888,
+      "correlation": 0.763466883608776,
+      "tracking_error": 0.26348783128385883,
+      "information_ratio": 0.7726074961732201
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.00146147287217465,
+        "sigma": 0.025542732673700944,
+        "loglik": 5576.190484545772,
+        "aic": -11148.380969091544,
+        "bic": -11136.748941413227,
+        "ks_stat": 0.06303768036716462,
+        "ks_p": 5.201093910455016e-09
+      },
+      "student_t": {
+        "df": 3.444571302598493,
+        "loc": 0.0013467110386150847,
+        "scale": 0.017046661119640292,
+        "loglik": 5817.726096120544,
+        "aic": -11629.452192241088,
+        "bic": -11612.004150723611,
+        "ks_stat": 0.00894717416746127,
+        "ks_p": 0.9877660053177926
+      },
+      "delta_aic_t_vs_norm": -481.0712231495436,
+      "gaussian_mixture": {
+        "loglik": 5791.98723442638,
+        "aic": -11573.97446885276,
+        "bic": -11544.894399656965,
+        "weights": [
+          0.3347930953296008,
+          0.6652069046703992
+        ],
+        "annual_vols": [
+          0.6168377877017314,
+          0.23668018259375057
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 7.919701377650004,
+      "strat_cagr": 0.24890364068239146,
+      "strat_annual_vol": 0.2857381760345369,
+      "trade_count": 55,
+      "win_rate": 0.5555555555555556
+    }
+  },
+  "period_2010_2019": {
+    "period_label": "2010\u20132019",
+    "start_date": "2010-01-04",
+    "end_date": "2019-12-31",
+    "trading_days": 2443,
+    "return_observations": 2442,
+    "years": 9.69,
+    "asset": {
+      "initial_price": 217.5871,
+      "final_price": 674.1978,
+      "cumulative_return": 2.098519167726396,
+      "cagr": 0.12373386534763342,
+      "daily_mean": 0.000599720207055491,
+      "annualized_volatility": 0.2626626373825513,
+      "skewness": 0.22253112854906734,
+      "excess_kurtosis": 2.077839764396174,
+      "jarque_bera": {
+        "stat": 459.451972293522,
+        "p_value": 1.7032243866712724e-100
+      },
+      "max_drawdown": -0.3915299073647882,
+      "mdd_peak_date": "2010-04-07",
+      "mdd_trough_date": "2012-05-16",
+      "mdd_recovery_date": "2014-05-16",
+      "mdd_recovery_days": 1500,
+      "var_95_hist": 0.02561836321796962,
+      "var_99_hist": 0.03926829747908408,
+      "var_95_norm": 0.026610768819539662,
+      "var_99_norm": 0.03788459369262672,
+      "es_95": 0.03424433789847568,
+      "es_99": 0.04862119757781904,
+      "sharpe_ratio": 0.3279091881368023
+    },
+    "benchmark": {
+      "initial_level": 5232.2002,
+      "final_level": 12168.4502,
+      "cumulative_return": 1.3256851295560135,
+      "cagr": 0.09096397449105575,
+      "annualized_volatility": 0.15463997667444634,
+      "max_drawdown": -0.27887577751111314,
+      "sharpe_ratio": 0.2202878190829594
+    },
+    "capm_relative": {
+      "beta": 1.098310380925701,
+      "alpha_ann": 0.04232504127876067,
+      "correlation": 0.6466191513956655,
+      "tracking_error": 0.20093840772939192,
+      "information_ratio": 0.16308425664798532
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.000599720207055491,
+        "sigma": 0.016542802703378743,
+        "loglik": 6551.557845295321,
+        "aic": -13099.115690590643,
+        "bic": -13087.514545281301,
+        "ks_stat": 0.029480653414713953,
+        "ks_p": 0.02810871890745681
+      },
+      "student_t": {
+        "df": 7.152971111763157,
+        "loc": 0.0003774138485202334,
+        "scale": 0.014019861548207039,
+        "loglik": 6603.508828322684,
+        "aic": -13201.017656645368,
+        "bic": -13183.615938681356,
+        "ks_stat": 0.013371076324836695,
+        "ks_p": 0.7698772207600373
+      },
+      "delta_aic_t_vs_norm": -101.90196605472556,
+      "gaussian_mixture": {
+        "loglik": 6597.466419671513,
+        "aic": -13184.932839343026,
+        "bic": -13155.929976069672,
+        "weights": [
+          0.39742146253758015,
+          0.6025785374624197
+        ],
+        "annual_vols": [
+          0.3387445137492959,
+          0.19330062119260344
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 0.023340077247184343,
+      "strat_cagr": 0.002382739867833772,
+      "strat_annual_vol": 0.1940010704914322,
+      "trade_count": 63,
+      "win_rate": 0.41935483870967744
+    }
+  },
+  "period_2020_2026_ytd": {
+    "period_label": "2020\u20132026 YTD",
+    "start_date": "2020-01-01",
+    "end_date": "2026-11-02",
+    "trading_days": 1691,
+    "return_observations": 1690,
+    "years": 6.71,
+    "asset": {
+      "initial_price": 672.2162,
+      "final_price": 1262.0,
+      "cumulative_return": 0.8773721906731793,
+      "cagr": 0.09841293662106976,
+      "daily_mean": 0.0005261707533747325,
+      "annualized_volatility": 0.2785704866238953,
+      "skewness": 0.395467445685137,
+      "excess_kurtosis": 10.6153976636845,
+      "jarque_bera": {
+        "stat": 7979.070624888396,
+        "p_value": 0.0
+      },
+      "max_drawdown": -0.4408286356037689,
+      "mdd_peak_date": "2020-01-17",
+      "mdd_trough_date": "2020-03-23",
+      "mdd_recovery_date": "2020-06-04",
+      "mdd_recovery_days": 139,
+      "var_95_hist": 0.023179861732308137,
+      "var_99_hist": 0.04034751496698606,
+      "var_95_norm": 0.02832965864805531,
+      "var_99_norm": 0.04028517943716865,
+      "es_95": 0.037266271958471146,
+      "es_99": 0.06609071374277038,
+      "sharpe_ratio": 0.24264964558752494
+    },
+    "benchmark": {
+      "initial_level": 12182.5,
+      "final_level": 23276.6504,
+      "cumulative_return": 0.9106628688692795,
+      "cagr": 0.101293923818075,
+      "annualized_volatility": 0.17727557432108615,
+      "max_drawdown": -0.3843985242939991,
+      "sharpe_ratio": 0.26752722974312726
+    },
+    "capm_relative": {
+      "beta": 1.1020389378468767,
+      "alpha_ann": 0.008697152506608916,
+      "correlation": 0.7013111403103204,
+      "tracking_error": 0.1994026254322394,
+      "information_ratio": -0.014448090594395198
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.0005261707533747325,
+        "sigma": 0.017543098625079884,
+        "loglik": 4434.823832560616,
+        "aic": -8865.647665121232,
+        "bic": -8854.782697505398,
+        "ks_stat": 0.08069957942590922,
+        "ks_p": 5.073554911792632e-10
+      },
+      "student_t": {
+        "df": 3.3604858253153385,
+        "loc": 0.00014421634932480635,
+        "scale": 0.01123272388057472,
+        "loglik": 4655.935918809873,
+        "aic": -9305.871837619747,
+        "bic": -9289.574386195995,
+        "ks_stat": 0.01630283258731202,
+        "ks_p": 0.7536350672104992
+      },
+      "delta_aic_t_vs_norm": -440.22417249851424,
+      "gaussian_mixture": {
+        "loglik": 4631.687055422835,
+        "aic": -9253.37411084567,
+        "bic": -9226.211691806086,
+        "weights": [
+          0.23926518426480686,
+          0.7607348157351931
+        ],
+        "annual_vols": [
+          0.4810239891447421,
+          0.17016544344254306
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 0.18127977792801442,
+      "strat_cagr": 0.02513796362206233,
+      "strat_annual_vol": 0.16789651481608814,
+      "trade_count": 46,
+      "win_rate": 0.30434782608695654
+    }
+  },
+  "train_2000_2015": {
+    "period_label": "Train (2000\u20132015)",
+    "start_date": "2000-01-03",
+    "end_date": "2015-12-31",
+    "trading_days": 3946,
+    "return_observations": 3945,
+    "years": 15.66,
+    "asset": {
+      "initial_price": 13.1835,
+      "final_price": 218.8357,
+      "cumulative_return": 15.599211135131036,
+      "cagr": 0.1965129244149013,
+      "daily_mean": 0.0009701861435933019,
+      "annualized_volatility": 0.36120897698510784,
+      "skewness": 0.35581741791533816,
+      "excess_kurtosis": 7.423342116396368,
+      "jarque_bera": {
+        "stat": 9141.293562046361,
+        "p_value": 0.0
+      },
+      "max_drawdown": -0.6818019480721143,
+      "mdd_peak_date": "2008-01-14",
+      "mdd_trough_date": "2008-10-24",
+      "mdd_recovery_date": "Not yet recovered",
+      "mdd_recovery_days": null,
+      "var_95_hist": 0.032277264688556136,
+      "var_99_hist": 0.06269340083185106,
+      "var_95_norm": 0.036452113414536996,
+      "var_99_norm": 0.05195688626717527,
+      "es_95": 0.049725151578315044,
+      "es_99": 0.08131455205532594,
+      "sharpe_ratio": 0.49690600074126057
+    },
+    "benchmark": {
+      "initial_level": 1592.2,
+      "final_level": 7946.3501,
+      "cumulative_return": 3.990798957417409,
+      "cagr": 0.1081195942612978,
+      "annualized_volatility": 0.2455482847447293,
+      "max_drawdown": -0.5985591323177377,
+      "sharpe_ratio": 0.2764799285814887
+    },
+    "capm_relative": {
+      "beta": 1.1065002167306461,
+      "alpha_ann": 0.09744501031238113,
+      "correlation": 0.7521940139906412,
+      "tracking_error": 0.23944795941582353,
+      "information_ratio": 0.3691546604500409
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.0009701861435933019,
+        "sigma": 0.022751142682214086,
+        "loglik": 9326.774419847117,
+        "aic": -18649.548839694235,
+        "bic": -18636.988431227674,
+        "ks_stat": 0.05839430199364384,
+        "ks_p": 3.904869441245232e-12
+      },
+      "student_t": {
+        "df": 3.8450369006779637,
+        "loc": 0.0007379224472272314,
+        "scale": 0.01585975368179405,
+        "loglik": 9669.998106896275,
+        "aic": -19333.99621379255,
+        "bic": -19315.15560109271,
+        "ks_stat": 0.009948223671775391,
+        "ks_p": 0.8259599962963493
+      },
+      "delta_aic_t_vs_norm": -684.4473740983158,
+      "gaussian_mixture": {
+        "loglik": 9621.593236154302,
+        "aic": -19233.186472308604,
+        "bic": -19201.785451142205,
+        "weights": [
+          0.33602218976884984,
+          0.6639778102311502
+        ],
+        "annual_vols": [
+          0.5402857486880885,
+          0.22095823883502497
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 4.150254304353416,
+      "strat_cagr": 0.11034745538226964,
+      "strat_annual_vol": 0.2539146480470542,
+      "trade_count": 95,
+      "win_rate": 0.44680851063829785
+    }
+  },
+  "test_2016_2026_ytd": {
+    "period_label": "Out-of-Sample Test (2016\u20132026 YTD)",
+    "start_date": "2016-01-04",
+    "end_date": "2026-11-02",
+    "trading_days": 2669,
+    "return_observations": 2668,
+    "years": 10.59,
+    "asset": {
+      "initial_price": 214.673,
+      "final_price": 1262.0,
+      "cumulative_return": 4.878708547418632,
+      "cagr": 0.18204385048311322,
+      "daily_mean": 0.0008070075638687784,
+      "annualized_volatility": 0.2689389497871058,
+      "skewness": 0.43462451312651357,
+      "excess_kurtosis": 8.945770299752198,
+      "jarque_bera": {
+        "stat": 8980.310147292572,
+        "p_value": 0.0
+      },
+      "max_drawdown": -0.45088348272161277,
+      "mdd_peak_date": "2019-12-19",
+      "mdd_trough_date": "2020-03-23",
+      "mdd_recovery_date": "2020-06-15",
+      "mdd_recovery_days": 179,
+      "var_95_hist": 0.023091322547451755,
+      "var_99_hist": 0.039098429257523756,
+      "var_95_norm": 0.02705415833264314,
+      "var_99_norm": 0.038597571050080964,
+      "es_95": 0.03502370549021142,
+      "es_99": 0.05903311387931546,
+      "sharpe_ratio": 0.5144881624787473
+    },
+    "benchmark": {
+      "initial_level": 7791.2998,
+      "final_level": 23276.6504,
+      "cumulative_return": 1.9875182572232681,
+      "cagr": 0.10886220441791261,
+      "annualized_volatility": 0.16125401385306243,
+      "max_drawdown": -0.3843985242939991,
+      "sharpe_ratio": 0.3192950983061224
+    },
+    "capm_relative": {
+      "beta": 1.083442622724998,
+      "alpha_ann": 0.07715825767829433,
+      "correlation": 0.649625023940179,
+      "tracking_error": 0.2049043888225381,
+      "information_ratio": 0.35715021276865455
+    },
+    "distribution_fit": {
+      "normal": {
+        "mu": 0.0008070075638687784,
+        "sigma": 0.016938386151811605,
+        "loglik": 7094.837191319401,
+        "aic": -14185.674382638803,
+        "bic": -14173.896213824732,
+        "ks_stat": 0.061427492707570086,
+        "ks_p": 3.4063849710962137e-09
+      },
+      "student_t": {
+        "df": 3.9586505521844035,
+        "loc": 0.0004483284670907988,
+        "scale": 0.01176805833564375,
+        "loglik": 7357.68856532549,
+        "aic": -14709.37713065098,
+        "bic": -14691.709877429874,
+        "ks_stat": 0.010355425399415419,
+        "ks_p": 0.9342923987186974
+      },
+      "delta_aic_t_vs_norm": -523.7027480121778,
+      "gaussian_mixture": {
+        "loglik": 7316.1206682569045,
+        "aic": -14622.241336513809,
+        "bic": -14592.795914478631,
+        "weights": [
+          0.7063938282817959,
+          0.293606171718204
+        ],
+        "annual_vols": [
+          0.16978934897343062,
+          0.4200311411177199
+        ]
+      }
+    },
+    "backtest_strategy": {
+      "fast_sma": 20,
+      "slow_sma": 50,
+      "transaction_cost_bps": 10.0,
+      "strat_cum_return": 1.21397751788118,
+      "strat_cagr": 0.0779294848776555,
+      "strat_annual_vol": 0.18007405580889993,
+      "trade_count": 70,
+      "win_rate": 0.42857142857142855
+    }
+  }
+}

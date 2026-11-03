@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Stock Market Distribution Analyzer | Statistical Distributions & Risk Analytics{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Offline bundled Plotly JS -->
+    <script src="{{ url_for('static', filename='js/plotly.min.js') }}"></script>
+</head>
+<body>
+    <div id="topProgressBar" class="top-progress-bar"></div>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="branding">
+                <div class="brand-logo">
+                    <span class="flag-stripe orange"></span>
+                    <span class="flag-stripe white"></span>
+                    <span class="flag-stripe green"></span>
+                </div>
+                <div>
+                    <h1>Stock Market Distribution Analyzer</h1>
+                    <p class="subtitle">Statistical Distributions, Downside Risk Measures & Historical AI Diagnostics</p>
+                </div>
+            </div>
+            <div class="header-status">
+                <span id="headerSourceBadge" class="badge badge-synthetic">SYNTHETIC DEMO</span>
+                <span id="headerTickerBadge" class="badge badge-ticker">RELIANCE.NS</span>
+                <span id="headerBenchmarkBadge" class="badge badge-benchmark">^NSEI (NIFTY 50)</span>
+                <span id="headerLastUpdated" class="last-updated">Ready</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p><strong>Stock Market Distribution Analyzer</strong> &bull; Academic & Quantitative Research Demonstration &bull; Annualization: 252 Trading Days</p>
+            <p class="disclaimer-note">
+                <strong>Notice:</strong> Educational analysis of historical return distributions. Not personalized financial or investment advice.
+                Past performance is not indicative of future market results.
+            </p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

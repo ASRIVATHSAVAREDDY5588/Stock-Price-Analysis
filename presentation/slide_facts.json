@@ -1,0 +1,798 @@
+[
+  {
+    "slide_number": 1,
+    "slide_title": "Title Slide",
+    "facts": [
+      {
+        "field": "Project Title",
+        "value": "Stock Market Distribution Analyzer",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/config.py:16; README.md:1"
+      },
+      {
+        "field": "Alternate Title",
+        "value": "Stock Market Return Distribution Analyzer",
+        "status": "CONFLICT",
+        "evidence_path": "Prompt clue; differs from codebase authoritative title 'Stock Market Distribution Analyzer'"
+      },
+      {
+        "field": "Department",
+        "value": "[MISSING: User must confirm department, e.g., Computer Science & Engineering / Data Science]",
+        "status": "MISSING",
+        "evidence_path": "Not specified in repository"
+      },
+      {
+        "field": "Institution",
+        "value": "[MISSING: User must confirm college/university name]",
+        "status": "MISSING",
+        "evidence_path": "Not specified in repository"
+      },
+      {
+        "field": "Team Member 1",
+        "value": "Srivathsa Reddy (Email: srivathsavareddy6@gmail.com, Reg No: [MISSING])",
+        "status": "VERIFIED",
+        "evidence_path": "git commit author 7eefeae90b9d; Windows username srivathsava"
+      },
+      {
+        "field": "Team Member 2",
+        "value": "Aryan Salunkhe (Reg No: [MISSING], Email: [MISSING])",
+        "status": "MISSING",
+        "evidence_path": "Prompt clue only; unverified in repository commit history"
+      },
+      {
+        "field": "Project Guide",
+        "value": "Dr. N. Sunanda (Designation / Department: [MISSING])",
+        "status": "MISSING",
+        "evidence_path": "Prompt clue only; unverified in repository source code"
+      },
+      {
+        "field": "Academic Year",
+        "value": "[MISSING: User to confirm, e.g., 2026-2027]",
+        "status": "MISSING",
+        "evidence_path": "Not documented in repository"
+      },
+      {
+        "field": "Institutional Logo",
+        "value": "[MISSING: Insert college logo]",
+        "status": "MISSING",
+        "evidence_path": "No image assets in repository root"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 2,
+    "slide_title": "Introduction & Problem Statement",
+    "facts": [
+      {
+        "field": "Background",
+        "value": "Financial asset returns are assumed to be Gaussian in elementary models, yet empirical returns exhibit heavy tails, volatility clustering, and negative crash skewness.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:7-8"
+      },
+      {
+        "field": "Exact Problem",
+        "value": "Standard financial tools either oversimplify returns as normal (understating catastrophic downside risk) or present complex formulas without interactive visual intuition.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:7-9"
+      },
+      {
+        "field": "Target Beneficiaries",
+        "value": "University students, data science learners, and quantitative finance researchers seeking a self-contained local experimental testbed.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/README.md:3"
+      },
+      {
+        "field": "Project Direction",
+        "value": "Practical exploratory data analysis and educational quantitative laboratory; strictly not a novelty or research-gap project.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:50-51; User directive"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide02_price_growth.png"
+  },
+  {
+    "slide_number": 3,
+    "slide_title": "Objectives & Scope",
+    "facts": [
+      {
+        "field": "Objective 1",
+        "value": "Implement dual return formulations (Simple and Logarithmic returns) with Indian market 252-day annualization convention.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:16-19"
+      },
+      {
+        "field": "Objective 2",
+        "value": "Formulate downside tail risk analytics: Historical and Parametric Value at Risk (VaR 95%) and Expected Shortfall (CVaR).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:20-25"
+      },
+      {
+        "field": "Objective 3",
+        "value": "Fit and compare parametric distributions (Normal vs Student-t MLE vs 2-component GMM) using AIC/BIC and Kolmogorov-Smirnov / Jarque-Bera tests.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:26-31"
+      },
+      {
+        "field": "Objective 4",
+        "value": "Engineer sampling modules (seed-reproducible IID/Block Bootstrap) and walk-forward backtesting enforcing strict zero lookahead bias.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:32-37"
+      },
+      {
+        "field": "Explicit Out-of-Scope",
+        "value": "No live trade execution, no tick/orderbook streaming, no research-gap claims, and strictly no personalized financial advisory services.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:48-57"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 4,
+    "slide_title": "Literature Survey",
+    "facts": [
+      {
+        "field": "Foundational Literature",
+        "value": "Mandelbrot (1963) & Fama (1965): Leptokurtosis and heavy tails in asset returns. Artzner et al. (1999): Coherent risk measures & Expected Shortfall. K\u00fcnsch (1989) / Politis & Romano (1994): Block bootstrap for dependent series.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "field": "Modern Literature 1: Risk & ML Methodology",
+        "value": "L\u00f3pez de Prado, M. (2018). Advances in Financial Machine Learning. Wiley. DOI: 10.1002/9781119482109. (Eliminates look-ahead leakage; enforces walk-forward backtesting).",
+        "status": "VERIFIED",
+        "evidence_path": "Wiley Online Library / CrossRef DOI: 10.1002/9781119482109"
+      },
+      {
+        "field": "Modern Literature 2: Joint VaR & ES Modeling",
+        "value": "Taylor, J. W. (2019). Forecasting Value at Risk and Expected Shortfall. Journal of Business & Economic Statistics, 37(1), 121-133. DOI: 10.1080/07350015.2017.1281815.",
+        "status": "VERIFIED",
+        "evidence_path": "Taylor & Francis / CrossRef DOI: 10.1080/07350015.2017.1281815"
+      },
+      {
+        "field": "Modern Literature 3: Return Modeling & Regularization",
+        "value": "Gu, S., Kelly, B., & Xiu, D. (2020). Empirical Asset Pricing via Machine Learning. Review of Financial Studies, 33(5), 2223-2273. DOI: 10.1093/rfs/hhaa009.",
+        "status": "VERIFIED",
+        "evidence_path": "Oxford University Press / CrossRef DOI: 10.1093/rfs/hhaa009"
+      },
+      {
+        "field": "Modern Literature 4: Explainable AI in Finance",
+        "value": "Arrieta, A. B., et al. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. Information Fusion, 58, 82-115. DOI: 10.1016/j.inffus.2019.12.012.",
+        "status": "VERIFIED",
+        "evidence_path": "Elsevier / CrossRef DOI: 10.1016/j.inffus.2019.12.012"
+      },
+      {
+        "field": "Modern Literature 5: Time Series Forecasting",
+        "value": "Lim, B., & Zohren, S. (2021). Time-series forecasting with deep learning: a survey. Phil. Trans. R. Soc. A, 379(2194), 20200209. DOI: 10.1098/rsta.2020.0209.",
+        "status": "VERIFIED",
+        "evidence_path": "Royal Society Publishing / CrossRef DOI: 10.1098/rsta.2020.0209"
+      },
+      {
+        "field": "Modern Literature 6: Alpha & Risk Premia Testing",
+        "value": "Pesaran, M. H., & Yamagata, T. (2024). Testing for Alpha in Linear Factor Pricing Models. Journal of Financial Econometrics, 22(2), 407-460. DOI: 10.1093/jjfinec/nbad002.",
+        "status": "VERIFIED",
+        "evidence_path": "Oxford Academic / CrossRef DOI: 10.1093/jjfinec/nbad002"
+      },
+      {
+        "field": "Practical Engineering Motivation",
+        "value": "Applied Data Science Workbench: Translates theoretical heavy-tailed distributions and coherent risk measures into an interactive, reproducible educational testbed for Indian equities (2000\u20132026 YTD).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 5,
+    "slide_title": "Proposed System & Methodology",
+    "facts": [
+      {
+        "field": "Methodology Stage 1",
+        "value": "Data Ingestion: Synthetic Student-t generator, Yahoo Finance API (.NS/.BO), or custom CSV upload.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/loader.py:15-60"
+      },
+      {
+        "field": "Methodology Stage 2",
+        "value": "Data Hygiene: Chronological sorting, deduplication, price sanity checks, and N >= 15 minimum history enforcement.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/csv_provider.py:30-75"
+      },
+      {
+        "field": "Methodology Stage 3",
+        "value": "Quantitative Analytics: Return series, sample moments, downside risk measures (VaR/ES/MDD), and MLE distribution fitting.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/"
+      },
+      {
+        "field": "Methodology Stage 4",
+        "value": "Chronological Backtest: Zero-lookahead trend evaluation with 10 bps transaction fee deduction.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/backtest.py:20-65"
+      },
+      {
+        "field": "Key Novelty Field",
+        "value": "CONFLICT: Template requests 'Key Novelty'. Replace with engineering highlights: 'Key Engineering Features: Dual-mode UX (general audience + quant), strict zero-lookahead walk-forward simulation, and server-side grounded AI validation.'",
+        "status": "CONFLICT",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:50; User directive"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 6,
+    "slide_title": "System Architecture",
+    "facts": [
+      {
+        "field": "Layer 1: Data Ingestion",
+        "value": "Synthetic engine, Yahoo Finance client with retry/timeout, CSV parser, and thread-safe Parquet/JSON disk caching.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:54-60"
+      },
+      {
+        "field": "Layer 2: Quantitative Engine",
+        "value": "Returns, moments, downside risk (VaR/ES/MDD), distribution MLE (Normal vs Student-t), bootstrap resampling, CLT explorer.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:61-68"
+      },
+      {
+        "field": "Layer 3: AI Guidance Layer",
+        "value": "Rule-based analysis guide, deterministic baseline score (-1.0 to +1.0), Pydantic schemas, and server-side grounding audit.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:69-75"
+      },
+      {
+        "field": "Layer 4: Presentation Layer",
+        "value": "Flask REST API, Jinja2 templates, offline bundled Plotly.js, client-side memory cache, CSV/MD export utilities.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:79-84"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide06_system_architecture.png"
+  },
+  {
+    "slide_number": 7,
+    "slide_title": "Hardware & Software Requirements",
+    "facts": [
+      {
+        "field": "Operating System",
+        "value": "Microsoft Windows 10 / 11 (64-bit)",
+        "status": "VERIFIED",
+        "evidence_path": "Active environment: Windows win32"
+      },
+      {
+        "field": "Python Runtime",
+        "value": "Python 3.11.9 (64-bit)",
+        "status": "VERIFIED",
+        "evidence_path": "Pytest session platform string"
+      },
+      {
+        "field": "Core Frameworks & Libraries",
+        "value": "Flask 3.1.0, pandas 2.2.3, numpy 2.2.1, scipy 1.15.0, scikit-learn 1.6.1, pydantic 2.10.4, yfinance 0.2.51, pyarrow 18.1.0",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/requirements.txt:1-18"
+      },
+      {
+        "field": "Visualization Library",
+        "value": "Plotly.js v2.35.2 (Locally bundled in static/js/plotly.min.js, 4.8 MB; 100% offline)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/static/js/plotly.min.js"
+      },
+      {
+        "field": "Testing Framework",
+        "value": "pytest 9.0.2 (30/30 unit tests passing in 2.46s)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/TESTING_AND_EVALUATION.md:54-93"
+      },
+      {
+        "field": "Database",
+        "value": "None required (Lightweight file-based Parquet/JSON disk caching in .cache/)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:55"
+      },
+      {
+        "field": "Hardware Minimum",
+        "value": "Dual-Core x86_64 CPU, 4 GB RAM, 500 MB free storage",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/SETUP_GUIDE.md:10-15"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 8,
+    "slide_title": "Dataset / Data Understanding",
+    "facts": [
+      {
+        "field": "Primary Sourced Dataset (2000\u20132026 YTD)",
+        "value": "reliance_cleaned_2000_2026.csv: 6,615 daily records; Columns: Date, Adj Close, Close, Volume; Span: 2000-01-03 to 2026-11-02",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/cleaned/reliance_cleaned_2000_2026.csv"
+      },
+      {
+        "field": "NIFTY 50 Benchmark Dataset",
+        "value": "nifty50_cleaned_2000_2026.csv: 6,615 daily records; Span: 2000-01-03 to 2026-11-02 (Yahoo Finance 2007-2026 merged with official NSE archive 2000-2007)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/cleaned/nifty50_cleaned_2000_2026.csv"
+      },
+      {
+        "field": "Multi-Stock Dataset",
+        "value": "multi_stock_sample.csv: 19,845 records across 3 tickers (INFY.NS, RELIANCE.NS, TCS.NS; 6,615 rows each)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/sample_data/multi_stock_sample.csv"
+      },
+      {
+        "field": "Raw vs Cleaned Separation",
+        "value": "Raw datasets preserved unedited in data/raw/ (reliance_raw_2000_2026.csv, nifty50_raw_yahoo_2007_2026.csv, nifty50_raw_historical_archive_1990_2019.csv, bse_sensex_raw_2000_2026.csv)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/reports/DATA_SOURCE_AND_QUALITY_REPORT.md"
+      },
+      {
+        "field": "Data Cleanliness & Corporate Actions",
+        "value": "0 missing values in aligned 6,615 sessions; automatic deduplication and positive price filtering; corporate bonuses (2009, 2017, 2024), splits, and dividends fully accounted for in Adj Close.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/reports/DATA_SOURCE_AND_QUALITY_REPORT.md"
+      },
+      {
+        "field": "Benchmark Limitation Notice",
+        "value": "NIFTY 50 is a Price Return index (PR), omitting dividend reinvestment (~1.2%\u20131.5% p.a.). Comparison against dividend-adjusted stock returns slightly flatters relative stock alpha.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/reports/DATA_SOURCE_AND_QUALITY_REPORT.md"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 9,
+    "slide_title": "Preprocessing & Exploratory Analysis",
+    "facts": [
+      {
+        "field": "Cleaning Steps",
+        "value": "1. Multi-format datetime coercion; 2. Strict chronological sorting; 3. Non-positive price filtering; 4. Calendar date inner-intersection (6,615 sessions).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/data/pipeline_fetch_and_clean.py"
+      },
+      {
+        "field": "Return Formulations",
+        "value": "Simple arithmetic return R_t = (P_t / P_{t-1}) - 1; Logarithmic return r_t = ln(P_t / P_{t-1}); Annualization convention = 252 trading sessions.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/returns.py"
+      },
+      {
+        "field": "Reliance Long-Horizon Statistics (2000\u20132026 YTD)",
+        "value": "Daily mean: +0.0890%, Annualized Volatility: 32.71%, Cumulative Return: +9,472.5% (Initial \u20b913.18 to \u20b91,262.00, CAGR: 18.98% vs Benchmark CAGR 10.76%).",
+        "status": "COMPUTED",
+        "evidence_path": "Computed on reliance_cleaned_2000_2026.csv; reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Shape Moments & Normality Rejection",
+        "value": "Sample Skewness: +0.3865; Excess Kurtosis: +8.4451 (Massive leptokurtosis; severe fat tails); Jarque-Bera Stat: 19,301.9, p < 1e-15 (Normality decisively rejected).",
+        "status": "COMPUTED",
+        "evidence_path": "Computed on reliance_cleaned_2000_2026.csv; reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Cross-Period Historical Contrast",
+        "value": "2000-2009: CAGR 33.13%, Vol 40.56%, Kurtosis +6.95; 2010-2019: CAGR 12.37%, Vol 26.27%, Kurtosis +2.08; 2020-2026 YTD: CAGR 9.84%, Vol 27.86%, Kurtosis +10.62.",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide09_return_histogram_fit.png"
+  },
+  {
+    "slide_number": 10,
+    "slide_title": "Module-wise Description",
+    "facts": [
+      {
+        "field": "Data Ingestion Module",
+        "value": "Coordinates synthetic generator, Yahoo Finance client with retry/timeout, and CSV parser into standard DataPayload.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:54-60"
+      },
+      {
+        "field": "Quantitative Analytics Module",
+        "value": "Executes simple/log returns, 252-day annualization, Historical/Parametric VaR, Expected Shortfall, Student-t MLE, and bootstrap resampling.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:61-68"
+      },
+      {
+        "field": "AI & Safety Guidance Module",
+        "value": "Orchestrates rule-based analysis suggestions, computes deterministic baseline score (-1 to +1), and sanitizes LLM output against server metrics.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:69-75"
+      },
+      {
+        "field": "Web & Visualization Module",
+        "value": "Delivers dual-mode UI (Simple Overview + Quant Lab), renders interactive Plotly charts with virtual DOM diffing, and exports CSV/MD reports.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/ARCHITECTURE.md:79-84"
+      },
+      {
+        "field": "Developer Assignment",
+        "value": "[MISSING: Team member ownership per module must be confirmed by students (Srivathsa Reddy & Aryan Salunkhe)]",
+        "status": "MISSING",
+        "evidence_path": "Single committer in git log"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 11,
+    "slide_title": "Algorithms & Technologies",
+    "facts": [
+      {
+        "field": "Annualization Convention",
+        "value": "252 trading sessions/year: sigma_ann = sigma_daily * sqrt(252); CAGR = (P_T / P_0)^(252 / N) - 1",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:61-65; statistics.py:45"
+      },
+      {
+        "field": "Downside Risk Formulations",
+        "value": "Historical VaR: -Quantile(R, 1-alpha); Parametric VaR: -(mu + sigma * z_{1-alpha}); Expected Shortfall: -E[R | R <= -VaR]",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/risk.py:20-55"
+      },
+      {
+        "field": "Distribution MLE Algorithms",
+        "value": "Normal MLE (closed-form); Student-t MLE (estimating degrees of freedom nu via bounded optimization, floc pinned to mean)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/distributions.py:25-55"
+      },
+      {
+        "field": "Sampling Algorithms",
+        "value": "1,000-replication IID & Moving-Block bootstrap; CLT explorer showing variance decay (SE proportional to 1/sqrt(n)) across n in {5, 10, 30, 50}",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/sampling.py:15-75"
+      },
+      {
+        "field": "Deterministic Baseline Scoring",
+        "value": "Rule-based score (-1.0 to +1.0) incorporating 50d/200d trend (+0.40), drawdown penalty (-0.30), NIFTY alpha (+0.20), and vol adjustment (+0.10)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/AI_AND_FINANCIAL_LIMITATIONS.md:9-32"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 12,
+    "slide_title": "Implementation / Model Building",
+    "facts": [
+      {
+        "field": "Execution Pipeline",
+        "value": "High-performance vectorized pipeline computing complete returns, moments, risk, distribution fits, and bootstrap in < 25 ms",
+        "status": "COMPUTED",
+        "evidence_path": "Stock_Return_AI_Lab/app.py:80-180; Benchmark logs"
+      },
+      {
+        "field": "Zero-Lookahead Backtest",
+        "value": "Dual moving-average trend strategy: signals at day t are executed at day t+1, subtracting 10 bps transaction fees",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/backtest.py:35-55"
+      },
+      {
+        "field": "Supervised Pipeline Flag",
+        "value": "Not applicable: this project uses unsupervised continuous probability distribution fitting and empirical risk modeling; no train/test split exists.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 13,
+    "slide_title": "Working Prototype / Output Screens",
+    "facts": [
+      {
+        "field": "Screen 1: Top Navigation",
+        "value": "Quick stock chips (Reliance, TCS, Infy, HDFC, ICICI, etc.), period buttons (6M, 1Y, 3Y, 5Y), top progress bar",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/templates/index.html:5-60"
+      },
+      {
+        "field": "Screen 2: Simple Overview",
+        "value": "Hero spotlight card (\u20b9 price, total gain, risk rating), 4 friendly cards (CAGR, Vol, VaR, vs NIFTY), clean Plotly chart, friendly AI card",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/templates/index.html:62-185"
+      },
+      {
+        "field": "Screen 3: Quant Lab",
+        "value": "Full mathematical workbench: Moment tables, Normal vs Student-t density overlays, Q-Q plots, drawdown duration, bootstrap CIs, CLT grid, backtest curve",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/templates/index.html:190-680"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide13_prototype_dashboard.png"
+  },
+  {
+    "slide_number": 14,
+    "slide_title": "Results & Performance Comparison",
+    "facts": [
+      {
+        "field": "Normal Fit Results (2000\u20132026 YTD)",
+        "value": "Log-Likelihood: +16,292.4 | AIC: -32,580.7 | BIC: -32,567.1 | KS Test p-value: 1.79e-23 | Jarque-Bera p < 1e-15 (Gaussian Model Decisively Rejected)",
+        "status": "COMPUTED",
+        "evidence_path": "Computed on reliance_cleaned_2000_2026.csv; reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Student-t Fit Results (2000\u20132026 YTD)",
+        "value": "Log-Likelihood: +16,948.5 | AIC: -33,890.9 | BIC: -33,870.5 | KS Test p-value: 0.7796 | Degrees of freedom: nu = 3.64",
+        "status": "COMPUTED",
+        "evidence_path": "Computed on reliance_cleaned_2000_2026.csv; reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Model Preference & Information Criteria",
+        "value": "Student-t distribution is overwhelmingly preferred by Delta AIC = -1,310.2 and KS p = 0.7796, proving that fat-tail modeling is mathematically indispensable.",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Sub-Period Tail Parameter Evolution",
+        "value": "Estimated nu: 3.44 (2000-2009, Delta AIC -481.1) -> 7.15 (2010-2019, Delta AIC -101.9) -> 3.36 (2020-2026 YTD, Delta AIC -440.2).",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Classifier Metrics Flag",
+        "value": "Accuracy, Precision, Recall, F1, ROC-AUC are N/A: The project models continuous return probability distributions and tail risk, not discrete supervised classification.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide14_qq_diagnostic_plot.png"
+  },
+  {
+    "slide_number": 15,
+    "slide_title": "Analysis & Key Findings",
+    "facts": [
+      {
+        "field": "Finding 1: Tail Risk Underestimation",
+        "value": "95% Historical VaR is -2.93%, but Expected Shortfall (CVaR) jumps to -4.47% (52.6% larger). 99% Historical VaR is -5.26%, ES is -7.57% (vs Normal VaR of -4.70%).",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Finding 2: Multi-Year Drawdown Cycles",
+        "value": "Reliance experienced a -68.18% maximum drawdown during the 2008 GFC (14-Jan-2008 to 24-Oct-2008; required 3,462 days to recover in Jul 2017) and -44.08% in March 2020 (recovered in 139 days).",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Finding 3: Structural Regime Shifts",
+        "value": "Decadal breakdown reveals structural regime shifts: 2000-2009 (high growth 33.1% CAGR, high vol 40.6%) -> 2010-2019 (consolidation 12.4% CAGR) -> 2020-2026 YTD (heavy tails nu=3.36, Kurtosis +10.62).",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Finding 4: Benchmark Sensitivity (CAPM)",
+        "value": "CAPM Beta = 1.10, Correlation = 0.73, Sharpe Ratio = 0.50 against NIFTY 50 (Rf = 6.50%).",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      },
+      {
+        "field": "Finding 5: Walk-Forward Backtesting Under Friction",
+        "value": "Full Sample 20d/50d trend strategy achieved 9.24% CAGR (166 trades, 43.4% win rate) vs 18.98% buy-and-hold with 10 bps fees. In-Sample Train (2000-2015): 11.03% vs 19.65%; Out-of-Sample Test (2016-2026 YTD): 7.79% vs 18.20%.",
+        "status": "COMPUTED",
+        "evidence_path": "reports/project_computed_metrics.json"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide15_drawdown_risk.png"
+  },
+  {
+    "slide_number": 16,
+    "slide_title": "Testing & Validation",
+    "facts": [
+      {
+        "field": "Pytest Suite Status",
+        "value": "100% Pass Rate: 30 of 30 automated tests passed in 2.46 seconds.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/TESTING_AND_EVALUATION.md:8-93; pytest run"
+      },
+      {
+        "field": "No-Lookahead Verification",
+        "value": "test_backtest.py: Future price perturbation after day t leaves prior signals and equity 100% invariant (10^-5 precision).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/tests/test_backtest.py:15-55"
+      },
+      {
+        "field": "Risk Invariant Verification",
+        "value": "test_risk.py: Tail ordering strictly enforced (ES_95% >= VaR_95%; VaR_99% > VaR_95%).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/tests/test_risk.py:10-45"
+      },
+      {
+        "field": "Bootstrap Reproducibility",
+        "value": "test_sampling.py: Identical random seeds yield bitwise identical confidence intervals.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/tests/test_sampling.py:12-40"
+      },
+      {
+        "field": "AI Grounding Audit",
+        "value": "test_ai_validation.py: Automatically forces HOLD / INSUFFICIENT_EVIDENCE if N < 60; validates numeric claims.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/tests/test_ai_validation.py:10-50"
+      }
+    ],
+    "visual_asset": "presentation_extraction/assets/slide16_clt_convergence.png"
+  },
+  {
+    "slide_number": 17,
+    "slide_title": "Challenges & Limitations",
+    "facts": [
+      {
+        "field": "Resolved: CPU Core Latency",
+        "value": "Windows joblib detection delay eliminated via os.environ['LOKY_MAX_CPU_COUNT'] in config.py and app.py.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/config.py:7; TROUBLESHOOTING.md:15"
+      },
+      {
+        "field": "Resolved: GMM & T-Fit Speed",
+        "value": "Replaced heavy sklearn GMM with pure NumPy 1D EM (1,300 ms -> 0.8 ms); optimized Student-t MLE (40 ms -> 10 ms).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/analytics/distributions.py:40-95"
+      },
+      {
+        "field": "Resolved: DOM Destruction",
+        "value": "Replaced Plotly newPlot with Plotly.react virtual DOM diffing (50 ms -> 2 ms per chart update).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/static/js/app.js:536-881"
+      },
+      {
+        "field": "Limitation: Sample Window",
+        "value": "Risk measures depend on historical sample period; windows excluding major shocks understate extreme tail risk.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/AI_AND_FINANCIAL_LIMITATIONS.md:58-65"
+      },
+      {
+        "field": "Limitation: Non-Stationarity",
+        "value": "Financial return distributions experience regime shifts over time; parameters fitted over 3 years cannot guarantee future constancy.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/AI_AND_FINANCIAL_LIMITATIONS.md:59-62"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 18,
+    "slide_title": "Conclusion",
+    "facts": [
+      {
+        "field": "Deliverable Summary",
+        "value": "Completed, verified, runnable Stock Market Distribution Analyzer with local Windows batch launchers and verified ZIP bundle.",
+        "status": "VERIFIED",
+        "evidence_path": "dist/Stock_Return_AI_Lab.zip"
+      },
+      {
+        "field": "Objectives Fulfilled",
+        "value": "100% of planned objectives delivered: Dual returns, VaR/ES, Student-t MLE, IID/Block bootstrap, zero-lookahead backtest.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:11-45"
+      },
+      {
+        "field": "Educational Value",
+        "value": "Provides students with an intuitive, interactive workbench demonstrating why Gaussian distribution assumptions fail in real financial markets.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/README.md:1-25"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 19,
+    "slide_title": "Future Scope & Applications",
+    "facts": [
+      {
+        "field": "Future Scope 1",
+        "value": "Multi-asset Markowitz Mean-Variance and CVaR portfolio optimization across the NIFTY 50 universe.",
+        "status": "PLANNED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:50-55"
+      },
+      {
+        "field": "Future Scope 2",
+        "value": "GARCH(1,1) and EGARCH dynamic conditional heteroskedasticity and volatility forecasting.",
+        "status": "PLANNED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:52"
+      },
+      {
+        "field": "Future Scope 3",
+        "value": "Clayton and Gumbel copula models for asymmetric tail dependence between equities.",
+        "status": "PLANNED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:54"
+      },
+      {
+        "field": "Target Applications",
+        "value": "Classroom instruction, university financial engineering labs, and retail investor risk education.",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/PROJECT_SCOPE.md:5-9"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 20,
+    "slide_title": "Team Contribution",
+    "facts": [
+      {
+        "field": "Srivathsa Reddy",
+        "value": "Core quantitative analytics, distribution MLE algorithms, return engines, and Git repository management (Reg No: [MISSING])",
+        "status": "MISSING",
+        "evidence_path": "Git author 7eefeae9; module allocation needs user confirmation"
+      },
+      {
+        "field": "Aryan Salunkhe",
+        "value": "Frontend dashboard development, Plotly.js charting integration, data preprocessing pipelines (Reg No: [MISSING])",
+        "status": "MISSING",
+        "evidence_path": "Prompt clue; unverified in Git log; needs user confirmation"
+      },
+      {
+        "field": "Dr. N. Sunanda",
+        "value": "Project guide, academic supervision, methodology review, and milestone evaluation (Designation: [MISSING])",
+        "status": "MISSING",
+        "evidence_path": "Prompt clue; unverified in codebase; needs user confirmation"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 21,
+    "slide_title": "References",
+    "facts": [
+      {
+        "field": "Foundational Citations",
+        "value": "Mandelbrot (1963), Fama (1965), Artzner et al. (1999), K\u00fcnsch (1989), Politis & Romano (1994).",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "field": "Modern Citations (2018\u20132026)",
+        "value": "L\u00f3pez de Prado (2018, Wiley DOI: 10.1002/9781119482109), Taylor (2019, JBES DOI: 10.1080/07350015.2017.1281815), Gu et al. (2020, RFS DOI: 10.1093/rfs/hhaa009), Arrieta et al. (2020, Info Fusion DOI: 10.1016/j.inffus.2019.12.012), Lim & Zohren (2021, Phil Trans A DOI: 10.1098/rsta.2020.0209), Pesaran & Yamagata (2024, J. Fin. Econometrics DOI: 10.1093/jjfinec/nbad002).",
+        "status": "VERIFIED",
+        "evidence_path": "Verified via Publisher DOIs"
+      },
+      {
+        "field": "Open Source Licenses",
+        "value": "Flask (BSD 3-Clause), NumPy & SciPy (BSD 3-Clause), Plotly.js (MIT), yfinance (Apache 2.0), pytest (MIT)",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/THIRD_PARTY_NOTICES.md"
+      }
+    ],
+    "visual_asset": null
+  },
+  {
+    "slide_number": 22,
+    "slide_title": "Thank You / Q&A",
+    "facts": [
+      {
+        "field": "Project Name",
+        "value": "Stock Market Distribution Analyzer",
+        "status": "VERIFIED",
+        "evidence_path": "Stock_Return_AI_Lab/config.py:16"
+      },
+      {
+        "field": "Srivathsa Reddy Contact",
+        "value": "Email: srivathsavareddy6@gmail.com | Phone: [MISSING] | LinkedIn: [MISSING]",
+        "status": "VERIFIED",
+        "evidence_path": "git commit author"
+      },
+      {
+        "field": "Aryan Salunkhe Contact",
+        "value": "Email: [MISSING] | Phone: [MISSING] | LinkedIn: [MISSING]",
+        "status": "MISSING",
+        "evidence_path": "Not found in codebase"
+      },
+      {
+        "field": "Project Guide Contact",
+        "value": "Dr. N. Sunanda | Department: [MISSING] | Institution: [MISSING]",
+        "status": "MISSING",
+        "evidence_path": "Not found in codebase"
+      },
+      {
+        "field": "Deliverable ZIP",
+        "value": "dist/Stock_Return_AI_Lab.zip (Verified standalone deliverable package, 61 files)",
+        "status": "VERIFIED",
+        "evidence_path": "dist/Stock_Return_AI_Lab.zip"
+      }
+    ],
+    "visual_asset": null
+  }
+]

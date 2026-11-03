@@ -1,18 +1,38 @@
-# Python
+# ==============================================================================
+# Stock Market Distribution Analyzer - .gitignore
+# ==============================================================================
+
+# Byte-compiled / optimized files
 __pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
+
+# Virtual Environments
 .venv/
 venv/
+ENV/
+env/
 
-# Streamlit secrets and local configuration
+# Caches and test logs
+.cache/
+.pytest_cache/
+*.log
+
+# Environment configuration (preserve .env.example)
 .env
 .env.*
 !.env.example
-.streamlit/secrets.toml
 
-# Editors and operating systems
+# Local staging / workspace directories excluded from repo root
+dist/
+Stock_Return_AI_Lab/
+presentation_extraction/
+
+# Legacy Streamlit directory
+.streamlit/
+
+# Operating system and editor artifacts
 .vscode/
 .idea/
 .DS_Store

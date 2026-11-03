@@ -1,0 +1,753 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    <!-- Top Friendly Control Bar: Always Visible & Super Easy for General Audience -->
+    <section class="top-nav-bar card">
+        <div class="top-nav-row">
+            <!-- Mode Switcher -->
+            <div class="mode-switcher-group">
+                <span class="mode-label">View:</span>
+                <div class="mode-pill-toggle">
+                    <button type="button" id="btnModeSimple" class="mode-btn active" title="Clean, easy-to-read summary without jargon">
+                        <span class="mode-icon">&#9679;</span> Simple Overview
+                    </button>
+                    <button type="button" id="btnModeQuant" class="mode-btn" title="Deep statistical tools, distributions, bootstrap & formulas">
+                        <span class="mode-icon">&#9881;</span> Quant Lab (Advanced)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Time Horizon Quick Filters -->
+            <div class="time-horizon-group">
+                <span class="time-label">Period:</span>
+                <div class="btn-group time-btns">
+                    <button type="button" class="btn-time" data-years="0.5">6M</button>
+                    <button type="button" class="btn-time" data-years="1">1Y</button>
+                    <button type="button" class="btn-time active" data-years="3">3Y</button>
+                    <button type="button" class="btn-time" data-years="5">5Y</button>
+                </div>
+            </div>
+
+            <!-- Quick Data Source Indicator / Selector -->
+            <div class="quick-source-group">
+                <span class="source-label">Data:</span>
+                <select id="quickSourceSelect" class="form-control-compact">
+                    <option value="synthetic" selected>Synthetic Demo (Offline)</option>
+                    <option value="yahoo">Yahoo Finance (Live / Cached)</option>
+                    <option value="csv">Custom CSV Upload</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Popular Indian Stock Chips (One-click switches!) -->
+        <div class="stock-chips-row">
+            <span class="chips-label">Popular Stocks:</span>
+            <div class="chips-container" id="stockChipsContainer">
+                <button type="button" class="stock-chip active" data-ticker="RELIANCE.NS">Reliance</button>
+                <button type="button" class="stock-chip" data-ticker="TCS.NS">TCS</button>
+                <button type="button" class="stock-chip" data-ticker="INFY.NS">Infosys</button>
+                <button type="button" class="stock-chip" data-ticker="HDFCBANK.NS">HDFC Bank</button>
+                <button type="button" class="stock-chip" data-ticker="ICICIBANK.NS">ICICI Bank</button>
+                <button type="button" class="stock-chip" data-ticker="TATAMOTORS.NS">Tata Motors</button>
+                <button type="button" class="stock-chip" data-ticker="ITC.NS">ITC</button>
+                <button type="button" class="stock-chip" data-ticker="SBIN.NS">SBI</button>
+                <button type="button" class="stock-chip" data-ticker="LT.NS">L&amp;T</button>
+                <button type="button" class="stock-chip" data-ticker="BHARTIARTL.NS">Airtel</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error Banner -->
+    <div id="alertBanner" class="alert-banner hidden">
+        <span id="alertMessage"></span>
+        <button id="alertCloseBtn" class="alert-close">&times;</button>
+    </div>
+
+    <!-- Synthetic Data Notice (Gentle, friendly banner) -->
+    <div id="syntheticWatermark" class="synthetic-watermark-bar">
+        <strong>Demo Data Mode:</strong> Showing simulated Indian market returns for instant offline exploration.
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 1: SIMPLE & FRIENDLY OVERVIEW (Default for General Audience) -->
+    <!-- ================================================================= -->
+    <section id="simpleViewContainer" class="view-panel">
+        <!-- Stock Spotlight Header -->
+        <div class="card spotlight-card">
+            <div class="spotlight-header">
+                <div>
+                    <span class="spotlight-ticker" id="simpleTickerLabel">RELIANCE.NS</span>
+                    <h2 class="spotlight-name" id="simpleStockName">Reliance Industries Ltd</h2>
+                    <span class="spotlight-dates" id="simpleDateRange">{{ active_sample_period_label | default('2000–2026 YTD') }} (through {{ last_trading_date | default('02-Nov-2026') }})</span>
+                </div>
+                <div class="spotlight-stats">
+                    <div class="stat-unit">
+                        <span class="unit-lbl">Current Price</span>
+                        <span class="unit-val" id="simpleCurrentPrice">&#8377;--</span>
+                    </div>
+                    <div class="stat-unit">
+                        <span class="unit-lbl">Total Period Growth</span>
+                        <span class="unit-val font-bold" id="simpleTotalGrowth">--%</span>
+                    </div>
+                    <div class="stat-unit">
+                        <span class="unit-lbl">Risk Rating</span>
+                        <span class="risk-pill pill-moderate" id="simpleRiskPill">Moderate Risk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 Plain-English Summary Cards -->
+        <div class="simple-cards-grid">
+            <div class="card friendly-card">
+                <div class="friendly-icon green-icon">&#128200;</div>
+                <div class="friendly-content">
+                    <span class="friendly-title">Yearly Growth (CAGR)</span>
+                    <span class="friendly-number" id="simpleCAGR">--% / yr</span>
+                    <p class="friendly-desc">Average compound annual growth rate of your investment.</p>
+                </div>
+            </div>
+            <div class="card friendly-card">
+                <div class="friendly-icon blue-icon">&#127777;</div>
+                <div class="friendly-content">
+                    <span class="friendly-title">Price Volatility</span>
+                    <span class="friendly-number" id="simpleVolatility">--%</span>
+                    <p class="friendly-desc">Annual price fluctuations. Lower means a calmer, steadier ride.</p>
+                </div>
+            </div>
+            <div class="card friendly-card">
+                <div class="friendly-icon amber-icon">&#128737;</div>
+                <div class="friendly-content">
+                    <span class="friendly-title">Expected Bad Day (VaR 95%)</span>
+                    <span class="friendly-number" id="simpleVaR">--%</span>
+                    <p class="friendly-desc">On 95 out of 100 days, daily drops will be less than this.</p>
+                </div>
+            </div>
+            <div class="card friendly-card">
+                <div class="friendly-icon red-icon">&#9888;</div>
+                <div class="friendly-content">
+                    <span class="friendly-title">Worst Drop from Peak</span>
+                    <span class="friendly-number" id="simpleMaxDD">--%</span>
+                    <p class="friendly-desc">The biggest drop experienced from top to bottom before recovering.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clean Interactive Chart -->
+        <div class="card chart-card mt-3">
+            <div class="chart-header">
+                <div>
+                    <h3>Performance vs NIFTY 50 Benchmark</h3>
+                    <p class="text-muted text-sm">Compare stock growth directly with the broader Indian equity market index.</p>
+                </div>
+                <div class="chart-toggle-pills">
+                    <button type="button" id="btnToggleChartGrowth" class="toggle-pill active">Growth (Base 100)</button>
+                    <button type="button" id="btnToggleChartPrice" class="toggle-pill">Stock Price (&#8377;)</button>
+                </div>
+            </div>
+            <div id="simpleInteractiveChart" class="plot-container"></div>
+        </div>
+
+        <!-- Friendly AI & Quantitative Guidance -->
+        <div class="card simple-ai-card mt-3">
+            <div class="ai-card-header">
+                <div>
+                    <span class="ai-tag">Educational AI &amp; Historical Signal</span>
+                    <h3 class="ai-signal-headline">Signal: <span id="simpleSignalBadge" class="signal-pill pill-hold">HOLD</span></h3>
+                    <span class="confidence-pill" id="simpleConfidenceBadge">Evidence Quality: Medium</span>
+                </div>
+                <div class="baseline-box-friendly">
+                    <span class="text-muted text-xs">Deterministic Rule Score:</span>
+                    <span class="score-display" id="simpleScoreVal">0.00</span>
+                    <span class="text-xs text-muted">(-1.0 to +1.0)</span>
+                </div>
+            </div>
+
+            <div class="simple-ai-body">
+                <div class="ai-plain-summary">
+                    <h4>What This Means:</h4>
+                    <p id="simpleRationaleText">Loading friendly summary...</p>
+                </div>
+
+                <div class="grid-2-col mt-2">
+                    <div class="friendly-evidence-box">
+                        <h5>&#10004; Supporting Factors</h5>
+                        <ul id="simpleSupportingList">
+                            <li>Loading factors...</li>
+                        </ul>
+                    </div>
+                    <div class="friendly-counter-box">
+                        <h5>&#9888; Key Things to Watch (Risks)</h5>
+                        <ul id="simpleCounterList">
+                            <li>Loading risks...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="action-footer mt-3">
+                    <div class="button-row">
+                        <button type="button" id="simpleExportCsvBtn" class="btn btn-secondary">&#128190; Export Excel / CSV</button>
+                        <button type="button" id="simpleExportReportBtn" class="btn btn-secondary">&#128196; Download Summary Report</button>
+                        <button type="button" id="simpleGoToQuantBtn" class="btn btn-primary">&#128300; Deep-Dive into Math &amp; Distributions &rarr;</button>
+                    </div>
+                    <p class="educational-notice-text">
+                        <strong>Notice:</strong> Educational analysis of historical return distributions. Not personalized financial advice. Past performance does not predict future results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 2: QUANT LAB / ADVANCED MODE (Deep Technical Workbench)      -->
+    <!-- ================================================================= -->
+    <section id="quantLabContainer" class="view-panel hidden">
+        <div class="dashboard-grid">
+            <!-- Left Advanced Sidebar -->
+            <aside class="sidebar-panel">
+                <div class="card control-card">
+                    <h2>Quant Parameters</h2>
+                    <form id="analyticsForm">
+                        <!-- Data Source -->
+                        <div class="form-group">
+                            <label for="sourceSelect"><strong>Data Source</strong></label>
+                            <select id="sourceSelect" name="source" class="form-control">
+                                <option value="synthetic" selected>Synthetic Demo Data (Offline)</option>
+                                <option value="yahoo">Yahoo Finance (Live / Cached)</option>
+                                <option value="csv">CSV File Upload</option>
+                            </select>
+                            <small id="sourceHelp" class="form-help">Synthetic uses Student-t innovations (&nu;=5).</small>
+                        </div>
+
+                        <!-- CSV Upload Group -->
+                        <div id="csvUploadGroup" class="form-group hidden">
+                            <label for="csvFileInput"><strong>Upload CSV File</strong></label>
+                            <input type="file" id="csvFileInput" name="csv_file" class="form-control" accept=".csv" />
+                            <small class="form-help">
+                                Format: <code>Date</code> + <code>Adj Close</code>.<br>
+                                <a href="/api/sample-csv/reliance_sample.csv" download>Reliance</a> &bull;
+                                <a href="/api/sample-csv/nifty50_sample.csv" download>NIFTY 50</a> &bull;
+                                <a href="/api/sample-csv/multi_stock_sample.csv" download>Multi-Stock</a>
+                            </small>
+                        </div>
+
+                        <!-- Stock Ticker Selection -->
+                        <div class="form-group" id="tickerSelectGroup">
+                            <label for="tickerSelect"><strong>Stock Ticker</strong></label>
+                            <div class="input-with-select">
+                                <select id="tickerSelect" class="form-control">
+                                    {% for sym, name in default_tickers.items() %}
+                                    <option value="{{ sym }}" {% if sym == selected_ticker %}selected{% endif %}>{{ sym }} — {{ name }}</option>
+                                    {% endfor %}
+                                    <option value="CUSTOM">Custom Ticker Input...</option>
+                                </select>
+                                <input type="text" id="customTickerInput" name="ticker" class="form-control hidden" placeholder="e.g. WIPRO.NS" value="{{ selected_ticker }}" />
+                            </div>
+                        </div>
+
+                        <!-- Benchmark Selection -->
+                        <div class="form-group">
+                            <label for="benchmarkSelect"><strong>Benchmark Index</strong></label>
+                            <select id="benchmarkSelect" name="benchmark" class="form-control">
+                                {% for b_sym, b_name in default_benchmarks.items() %}
+                                <option value="{{ b_sym }}" {% if b_sym == selected_benchmark %}selected{% endif %}>{{ b_sym }} — {{ b_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Date Range -->
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="startDate"><strong>Start Date</strong></label>
+                                <input type="date" id="startDate" name="start_date" class="form-control" value="{{ default_start_date | default('2000-01-01') }}" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="endDate"><strong>End Date (YTD)</strong></label>
+                                <input type="date" id="endDate" name="end_date" class="form-control" value="{{ default_end_date | default('2026-11-02') }}" />
+                            </div>
+                        </div>
+
+                        <!-- Return Formula -->
+                        <div class="form-group">
+                            <label><strong>Return Convention</strong></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="return_type" value="simple" checked />
+                                    <span>Simple Return: <code>R_t = (P_t / P_{t-1}) - 1</code></span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="return_type" value="log" />
+                                    <span>Log Return: <code>r_t = ln(P_t / P_{t-1})</code></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- VaR Confidence Level -->
+                        <div class="form-group">
+                            <div class="label-with-val">
+                                <label for="confidenceRange"><strong>VaR Confidence Level</strong></label>
+                                <span id="confidenceVal" class="val-badge">95%</span>
+                            </div>
+                            <input type="range" id="confidenceRange" name="confidence_level" min="0.80" max="0.99" step="0.01" value="0.95" class="range-slider" />
+                        </div>
+
+                        <!-- Sampling & Bootstrap Options -->
+                        <div class="collapsible-section">
+                            <div class="collapsible-header" id="bootstrapToggle">
+                                <strong>Bootstrap &amp; Sampling Options</strong>
+                                <span class="toggle-icon">&#9660;</span>
+                            </div>
+                            <div class="collapsible-body" id="bootstrapBody">
+                                <div class="form-group">
+                                    <label for="bootstrapMethod">Resampling Method</label>
+                                    <select id="bootstrapMethod" name="bootstrap_method" class="form-control">
+                                        <option value="iid" selected>Standard IID Bootstrap</option>
+                                        <option value="block">Moving Block Bootstrap (Time-Series)</option>
+                                    </select>
+                                    <small class="form-help">Block bootstrap preserves volatility clustering.</small>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="blockSize">Block Size (Days)</label>
+                                        <input type="number" id="blockSize" name="bootstrap_block_size" class="form-control" min="2" max="30" value="5" />
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="bootSeed">Random Seed</label>
+                                        <input type="number" id="bootSeed" name="bootstrap_seed" class="form-control" value="42" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button type="submit" id="runAnalysisBtn" class="btn btn-primary">Recalculate Quant Models</button>
+                            <div class="btn-group-row">
+                                <button type="button" id="exportCsvBtn" class="btn btn-secondary">Export Returns CSV</button>
+                                <button type="button" id="exportReportBtn" class="btn btn-secondary">Download Report</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Educational Help Card -->
+                <div class="card help-card mt-2">
+                    <h3>Methodology &amp; Theory</h3>
+                    <ul class="help-list">
+                        <li><a href="#" class="help-link" data-modal="modal-var">Understanding VaR &amp; Expected Shortfall</a></li>
+                        <li><a href="#" class="help-link" data-modal="modal-kurtosis">Skewness &amp; Excess Kurtosis</a></li>
+                        <li><a href="#" class="help-link" data-modal="modal-student-t">Student-t vs Gaussian Modeling</a></li>
+                        <li><a href="#" class="help-link" data-modal="modal-clt">The Central Limit Theorem</a></li>
+                        <li><a href="#" class="help-link" data-modal="modal-bootstrap">IID vs Block Bootstrap</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Advanced Analytical Display -->
+            <section class="content-panel">
+                <!-- Key Metrics Ribbon -->
+                <div class="metrics-ribbon" id="metricsRibbon">
+                    <div class="metric-card">
+                        <span class="metric-label">Annualized Return (Compound)</span>
+                        <span class="metric-value" id="metricAnnRet">--%</span>
+                        <span class="metric-sub" id="metricMeanDaily">Daily mean: --%</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Annualized Volatility</span>
+                        <span class="metric-value" id="metricAnnVol">--%</span>
+                        <span class="metric-sub">Scaling: &sigma; &times; &radic;252</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Historical 95% 1-Day VaR</span>
+                        <span class="metric-value danger-text" id="metricVaR">--%</span>
+                        <span class="metric-sub" id="metricVaRSub">Cutoff percentile</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">95% Expected Shortfall</span>
+                        <span class="metric-value danger-text" id="metricES">--%</span>
+                        <span class="metric-sub">Tail loss average</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Maximum Drawdown</span>
+                        <span class="metric-value warning-text" id="metricMaxDD">--%</span>
+                        <span class="metric-sub" id="metricDDDuration">Peak to trough</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">CAPM Beta vs Benchmark</span>
+                        <span class="metric-value" id="metricBeta">--</span>
+                        <span class="metric-sub" id="metricCorr">Corr (&rho;): --</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-tab="tab-overview">Overview &amp; Price History</button>
+                    <button class="tab-btn" data-tab="tab-distribution">Distribution &amp; Fitting</button>
+                    <button class="tab-btn" data-tab="tab-risk">Risk &amp; Backtesting</button>
+                    <button class="tab-btn" data-tab="tab-sampling">Sampling &amp; CLT Explorer</button>
+                    <button class="tab-btn" data-tab="tab-ai">AI Insights &amp; Signal</button>
+                </nav>
+
+                <!-- Tab 1: Overview -->
+                <div id="tab-overview" class="tab-content active">
+                    <div class="card chart-card">
+                        <div class="chart-header">
+                            <h3>Price History &amp; Benchmark Comparison (Indexed to 100)</h3>
+                            <div class="chart-actions">
+                                <span class="badge" id="chartDateRangeBadge">-- to --</span>
+                            </div>
+                        </div>
+                        <div id="priceComparisonChart" class="plot-container"></div>
+                    </div>
+
+                    <div class="grid-2-col mt-2">
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3>Cumulative Growth of &#8377;100 Investment</h3>
+                            </div>
+                            <div id="cumulativeReturnChart" class="plot-container-sm"></div>
+                        </div>
+                        <div class="card table-card">
+                            <div class="chart-header">
+                                <h3>Descriptive Statistics</h3>
+                                <span class="text-muted text-sm" id="statObsCount">N = -- sessions</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table" id="descStatsTable">
+                                    <tbody>
+                                        <tr><td>Daily Mean</td><td id="statDailyMean" class="font-mono">--</td></tr>
+                                        <tr><td>Daily Median</td><td id="statDailyMedian" class="font-mono">--</td></tr>
+                                        <tr><td>Daily Std Deviation</td><td id="statDailyStd" class="font-mono">--</td></tr>
+                                        <tr><td>Daily Variance</td><td id="statDailyVar" class="font-mono">--</td></tr>
+                                        <tr><td>Skewness (Fisher-Pearson)</td><td id="statSkewness" class="font-mono">--</td></tr>
+                                        <tr><td>Excess Kurtosis (Normal = 0)</td><td id="statKurtosis" class="font-mono">--</td></tr>
+                                        <tr><td>Minimum / Maximum Day</td><td id="statMinMax" class="font-mono">--</td></tr>
+                                        <tr><td>Compound Annual Growth (CAGR)</td><td id="statCAGR" class="font-mono">--</td></tr>
+                                        <tr><td>Total Cumulative Return</td><td id="statCumReturn" class="font-mono">--</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <small class="text-muted p-2 d-block" id="statAnnualConvention">Annualization: 252 trading sessions per year.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Distribution -->
+                <div id="tab-distribution" class="tab-content">
+                    <div class="grid-2-col">
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3>Return Distribution vs Normal &amp; Student-t Fits</h3>
+                            </div>
+                            <div id="histogramFitChart" class="plot-container"></div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3>Q-Q Diagnostic Plot (Empirical vs Theoretical)</h3>
+                            </div>
+                            <div id="qqPlotChart" class="plot-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="card table-card mt-3">
+                        <div class="chart-header">
+                            <h3>Parametric Goodness-of-Fit Comparison</h3>
+                            <span id="preferredModelBadge" class="badge badge-success">Preferred Model: --</span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Log-Likelihood</th>
+                                        <th>AIC (Akaike)</th>
+                                        <th>BIC (Bayesian)</th>
+                                        <th>Parameters</th>
+                                        <th>KS-Test p-value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Normal (&mu;, &sigma;)</strong></td>
+                                        <td id="normLogLik" class="font-mono">--</td>
+                                        <td id="normAIC" class="font-mono">--</td>
+                                        <td id="normBIC" class="font-mono">--</td>
+                                        <td id="normParams" class="font-mono">--</td>
+                                        <td id="normKSp" class="font-mono">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Student-t (&nu;, loc, scale)</strong></td>
+                                        <td id="tLogLik" class="font-mono">--</td>
+                                        <td id="tAIC" class="font-mono">--</td>
+                                        <td id="tBIC" class="font-mono">--</td>
+                                        <td id="tParams" class="font-mono">--</td>
+                                        <td id="tKSp" class="font-mono">--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="diagnostic-interpretations p-3">
+                            <div class="alert-box info-box" id="jbTestResultBox">
+                                <strong>Jarque-Bera Normality Test:</strong> <span id="jbResultText">Calculating...</span>
+                            </div>
+                            <div class="alert-box note-box" id="dfInterpretationBox">
+                                <strong>Degrees of Freedom (&nu;):</strong> <span id="dfResultText">Calculating...</span>
+                            </div>
+                            <div class="alert-box warning-box" id="gmmResultBox">
+                                <strong>Two-Component Gaussian Mixture (Regimes):</strong> <span id="gmmResultText">Calculating...</span>
+                            </div>
+                            <small class="text-muted d-block mt-2">
+                                *Epistemological Notice: A lower AIC or failing to reject the KS test does NOT prove the real market follows that distribution.
+                                Financial markets exhibit non-stationary volatility, jump-diffusion, and macro regime changes.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Risk & Backtesting -->
+                <div id="tab-risk" class="tab-content">
+                    <div class="grid-2-col">
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3>Underwater Drawdown History</h3>
+                            </div>
+                            <div id="drawdownChart" class="plot-container-sm"></div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3>Rolling 21-Day Annualized Volatility</h3>
+                            </div>
+                            <div id="rollingVolChart" class="plot-container-sm"></div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="chart-header">
+                            <h3>Walk-Forward Strategy Simulation (Strictly Zero Lookahead)</h3>
+                            <span class="badge badge-info">1-Day Lag &bull; 10 bps Transaction Cost</span>
+                        </div>
+                        <p class="section-desc">
+                            Evaluates a chronological dual moving-average rule (20d vs 50d). Signals at day <code>t</code> are computed
+                            exclusively with trailing prices up to <code>t</code> and positions enter at day <code>t+1</code>.
+                        </p>
+                        <div id="backtestEquityChart" class="plot-container-sm"></div>
+                        <div class="backtest-stats-grid" id="backtestStatsGrid">
+                            <div class="mini-stat">
+                                <span class="stat-lbl">Strategy CAGR</span>
+                                <span class="stat-val" id="btStratCAGR">--%</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="stat-lbl">Stock Buy &amp; Hold CAGR</span>
+                                <span class="stat-val" id="btStockCAGR">--%</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="stat-lbl">Strategy Max Drawdown</span>
+                                <span class="stat-val" id="btStratMaxDD">--%</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="stat-lbl">Win Rate (Active Days)</span>
+                                <span class="stat-val" id="btWinRate">--%</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="stat-lbl">Total Trades</span>
+                                <span class="stat-val" id="btTrades">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Sampling & CLT -->
+                <div id="tab-sampling" class="tab-content">
+                    <div class="card">
+                        <div class="chart-header">
+                            <h3>Bootstrap Confidence Intervals (1,000 Replications)</h3>
+                            <span id="bootstrapMethodBadge" class="badge">IID Bootstrap &bull; Seed 42</span>
+                        </div>
+                        <p class="section-desc">
+                            Percentile bootstrap confidence bounds for key statistical moments.
+                            <em>Notice:</em> Standard IID bootstrap assumes independent identical observations.
+                            Use Block Bootstrap when volatility clustering is pronounced.
+                        </p>
+                        <div class="grid-3-col">
+                            <div class="card subcard">
+                                <h4>Daily Mean Return</h4>
+                                <div id="bootMeanChart" class="plot-container-xs"></div>
+                                <div class="ci-summary" id="bootMeanCI">Point: -- | 95% CI: [--, --]</div>
+                            </div>
+                            <div class="card subcard">
+                                <h4>Annualized Volatility</h4>
+                                <div id="bootVolChart" class="plot-container-xs"></div>
+                                <div class="ci-summary" id="bootVolCI">Point: -- | 95% CI: [--, --]</div>
+                            </div>
+                            <div class="card subcard">
+                                <h4>Historical 95% VaR</h4>
+                                <div id="bootVaRChart" class="plot-container-xs"></div>
+                                <div class="ci-summary" id="bootVaRCI">Point: -- | 95% CI: [--, --]</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="chart-header">
+                            <h3>Central Limit Theorem (CLT) Convergence Explorer</h3>
+                            <span class="badge badge-primary">University Teaching Tool</span>
+                        </div>
+                        <p class="section-desc">
+                            Empirical daily stock returns are heavily skewed and fat-tailed. Below, we repeatedly draw samples of size
+                            <code>n &isin; {5, 10, 30, 50}</code> from this exact historical series and plot the distribution of sample averages.
+                            Watch skewness and kurtosis decay toward 0 as <code>n</code> grows!
+                        </p>
+                        <div class="grid-4-col" id="cltGrid">
+                            <!-- Dynamic CLT chart columns inserted via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: AI Insights -->
+                <div id="tab-ai" class="tab-content">
+                    <div class="card signal-card">
+                        <div class="signal-header">
+                            <div>
+                                <span class="signal-tag">Educational Historical Evaluation</span>
+                                <h2 class="signal-title">Analytical Signal: <span id="signalBadge" class="signal-pill pill-hold">HOLD</span></h2>
+                                <span class="confidence-pill" id="confidenceBadge">Confidence: INSUFFICIENT EVIDENCE</span>
+                            </div>
+                            <div class="baseline-comparison-box">
+                                <span class="baseline-lbl">Deterministic Baseline Score:</span>
+                                <span class="baseline-val" id="baselineScoreVal">0.00</span>
+                                <span class="baseline-signal" id="baselineSignalVal">(HOLD)</span>
+                            </div>
+                        </div>
+
+                        <div class="signal-body">
+                            <div class="signal-rationale">
+                                <h4>Analytical Rationale</h4>
+                                <p id="signalRationale">Loading analytical evaluation...</p>
+                            </div>
+
+                            <div class="grid-2-col mt-2">
+                                <div class="evidence-box">
+                                    <h5>Supporting Evidence</h5>
+                                    <ul id="supportingMetricsList">
+                                        <li>Loading metrics...</li>
+                                    </ul>
+                                </div>
+                                <div class="counter-box">
+                                    <h5>Counter-Evidence &amp; Downside Risk</h5>
+                                    <ul id="counterEvidenceList">
+                                        <li>Loading risks...</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="risk-notes-box mt-2">
+                                <strong>Downside Caveats &amp; Data Integrity:</strong>
+                                <p id="signalRiskNotes">--</p>
+                            </div>
+
+                            <div class="legal-disclaimer-box mt-3">
+                                <strong>Regulatory Notice:</strong>
+                                <span id="signalDisclaimer">Educational analysis of historical data, not personalized financial advice. Past returns do not predict future results.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Guide Recommendations -->
+                    <div class="card mt-3">
+                        <div class="chart-header">
+                            <h3>Actionable Analysis Guide</h3>
+                            <span class="badge badge-info" id="guideEngineBadge">Grounded Evidence Engine</span>
+                        </div>
+                        <p class="section-desc">
+                            Targeted next steps derived strictly from observed distribution and risk anomalies in the selected dataset.
+                        </p>
+                        <div class="guide-items-container" id="guideItemsContainer">
+                            <!-- Dynamic recommendation cards inserted via JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+
+<!-- Educational Help Modals -->
+<div id="modal-var" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Value at Risk (VaR) &amp; Expected Shortfall</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Value at Risk (VaR)</strong> at confidence level <code>1 - &alpha;</code> is the threshold loss such that losses exceed this level only with probability <code>&alpha;</code>.</p>
+            <p><strong>Expected Shortfall (CVaR)</strong> is the conditional expectation of loss given that the loss has exceeded the VaR threshold: <code>ES_&alpha; = -E[R | R &le; -VaR_&alpha;]</code>. It quantifies how severe tail losses average when a crash occurs.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal-kurtosis" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Skewness &amp; Excess Kurtosis</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Skewness (3rd standardized moment):</strong> Measures distributional asymmetry. Negative skewness denotes frequent small gains and occasional large, sharp market crashes (crash asymmetry).</p>
+            <p><strong>Excess Kurtosis (4th standardized moment - 3):</strong> Measures tail thickness relative to a Normal distribution (where kurtosis = 0). Values &gt; 0 indicate a leptokurtic distribution with heavy tails.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal-student-t" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Student-t vs Gaussian Modeling</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>The Student-t distribution features an additional shape parameter: <strong>degrees of freedom (&nu;)</strong>.</p>
+            <ul>
+                <li>When <code>&nu; &le; 5</code>, tails are thick and standard Gaussian VaR severely underestimates risk.</li>
+                <li>When <code>&nu; &gt; 30</code>, the Student-t distribution converges asymptotically to the Normal distribution.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="modal-clt" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>The Central Limit Theorem (CLT)</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>The Central Limit Theorem establishes that the sum or average of independent random variables with finite variance converges to a Normal distribution as sample size <code>n &rarr; &infin;</code>, regardless of the underlying population's shape.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal-bootstrap" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>IID vs Moving-Block Bootstrap</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>IID Bootstrap:</strong> Draws single days with replacement. Assumes returns are independent.</p>
+            <p><strong>Moving Block Bootstrap:</strong> Draws contiguous chunks of consecutive trading days (e.g., 5 or 10 days). Preserves serial autocorrelation and volatility clustering.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <p id="loadingStatusText">Analyzing stock returns...</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
