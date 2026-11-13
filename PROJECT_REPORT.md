@@ -19,6 +19,7 @@
 
 **Academic Year:** 2026–2027  
 **Year:** III, **Semester:** I  
+**Course Code:** 24AD3107 — Data Science Project  
 
 **DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING**  
 **KLH UNIVERSITY**  
@@ -446,6 +447,10 @@ Through this project, the team gained deep practical experience in:
 4. **Arrieta, A. B., et al. (2020).** Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. *Information Fusion*, 58, 82–115. DOI: [10.1016/j.inffus.2019.12.012](https://doi.org/10.1016/j.inffus.2019.12.012).
 5. **Lim, B., & Zohren, S. (2021).** Time-series forecasting with deep learning: a survey. *Phil. Trans. R. Soc. A*, 379(2194), 20200209. DOI: [10.1098/rsta.2020.0209](https://doi.org/10.1098/rsta.2020.0209).
 6. **Pesaran, M. H., & Yamagata, T. (2024).** Testing for Alpha in Linear Factor Pricing Models. *Journal of Financial Econometrics*, 22(2), 407–460. DOI: [10.1093/jjfinec/nbad002](https://doi.org/10.1093/jjfinec/nbad002).
+7. **Yan, H., & Han, L. (2019).** A study on the empirical distribution of stock returns. *Physica A: Statistical Mechanics and its Applications*, 514, 473–486. DOI: [10.1016/j.physa.2018.09.080](https://doi.org/10.1016/j.physa.2018.09.080).
+8. **Tripathy, N., & Gil-Alana, L. A. (2015).** Suitability of GARCH models in Indian stock market: A study of volatility dynamics. *Journal of Quantitative Economics*, 13(2), 241–268.
+9. **Eom, C., Kaizoji, T., & Scalas, E. (2019).** Fat tails and GARCH filtering in financial time series. *Physica A: Statistical Mechanics and its Applications*, 523, 1025–1035.
+10. **Andersen, T. G., Bollerslev, T., Diebold, F. X., & Ebens, H. (2001).** The distribution of realized stock return volatility. *Journal of Financial Economics*, 61(1), 43–76.
 
 ### 13.3 Internal Project Engineering Specifications
 - `PROJECT_SCOPE.md`: Mathematical definitions and scope boundaries.

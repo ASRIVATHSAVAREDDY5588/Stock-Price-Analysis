@@ -13,6 +13,7 @@
 *Associate Professor, Department of Computer Science and Engineering, KLH University*  
 
 **Academic Year:** 2026–2027 | Year III, Semester I  
+**Course Code:** 24AD3107 — Data Science Project  
 *Bachelor of Technology in Computer Science and Engineering*  
 *Koneru Lakshmaiah Education Foundation (KLH University), Hyderabad, Telangana, India*
 
@@ -287,5 +288,9 @@ The **Stock Market Distribution Analyzer** provides a robust, mathematically rig
 9. **Arrieta, A. B., et al. (2020).** Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. *Information Fusion*, 58, 82–115. DOI: [10.1016/j.inffus.2019.12.012](https://doi.org/10.1016/j.inffus.2019.12.012).
 10. **Lim, B., & Zohren, S. (2021).** Time-series forecasting with deep learning: a survey. *Phil. Trans. R. Soc. A*, 379(2194), 20200209. DOI: [10.1098/rsta.2020.0209](https://doi.org/10.1098/rsta.2020.0209).
 11. **Pesaran, M. H., & Yamagata, T. (2024).** Testing for Alpha in Linear Factor Pricing Models. *Journal of Financial Econometrics*, 22(2), 407–460. DOI: [10.1093/jjfinec/nbad002](https://doi.org/10.1093/jjfinec/nbad002).
-12. **National Stock Exchange of India (NSE).** Historical Index Data Services. [https://www.nseindia.com/](https://www.nseindia.com/).
-13. **Yahoo Finance API.** Market Data Services (`RELIANCE.NS`, `^NSEI`, `^BSESN`). [https://finance.yahoo.com/](https://finance.yahoo.com/).
+12. **Yan, H., & Han, L. (2019).** A study on the empirical distribution of stock returns. *Physica A: Statistical Mechanics and its Applications*, 514, 473–486. DOI: [10.1016/j.physa.2018.09.080](https://doi.org/10.1016/j.physa.2018.09.080).
+13. **Tripathy, N., & Gil-Alana, L. A. (2015).** Suitability of GARCH models in Indian stock market: A study of volatility dynamics. *Journal of Quantitative Economics*, 13(2), 241–268.
+14. **Eom, C., Kaizoji, T., & Scalas, E. (2019).** Fat tails and GARCH filtering in financial time series. *Physica A: Statistical Mechanics and its Applications*, 523, 1025–1035.
+15. **Andersen, T. G., Bollerslev, T., Diebold, F. X., & Ebens, H. (2001).** The distribution of realized stock return volatility. *Journal of Financial Economics*, 61(1), 43–76.
+16. **National Stock Exchange of India (NSE).** Historical Index Data Services. [https://www.nseindia.com/](https://www.nseindia.com/).
+17. **Yahoo Finance API.** Market Data Services (`RELIANCE.NS`, `^NSEI`, `^BSESN`). [https://finance.yahoo.com/](https://finance.yahoo.com/).

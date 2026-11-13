@@ -287,10 +287,29 @@ Stock-Price-Analysis/
 │   ├── update_slide_facts.py          # Script to update slide facts JSON
 │   └── build_deliverable_zip.py       # Standalone distribution zip packager
 │
-├── presentation/                      # Presentation deliverables (22-slide mapping)
-│   ├── PRESENTATION_CONTENT_PACK.md   # Complete slide content pack
+├── presentation/                      # Presentation deliverables & academic decks
+│   ├── PRESENTATION_CONTENT_PACK.md   # Complete 22-slide review content pack
+│   ├── PRESENTATION_DECK_10_SLIDES.md # 10-slide Research Gap & Distribution deck
+│   ├── PRESENTATION_DECK_9_SLIDES.md  # 9-slide Course 24AD3107 review deck
 │   ├── slide_facts.json               # Extracted facts and evidence citations
-│   └── assets/                        # 6 high-resolution chart PNGs
+│   ├── pptx/                          # PowerPoint presentation binaries (.pptx)
+│   │   ├── Final_Project_Review_22_Slides.pptx
+│   │   ├── Stock_Market_Return_Distribution_Analyzer_10_Slides.pptx
+│   │   └── Course_24AD3107_Project_Review_9_Slides.pptx
+│   ├── docs/                          # Word document deliverables (.docx)
+│   │   ├── Stock_Market_Distribution_Analyzer_Research_Paper.docx
+│   │   └── Stock_Market_Distribution_Analyzer_BTech_Project_Report.docx
+│   └── assets/                        # High-resolution charts & slide figures
+│       ├── slide02_price_growth.png
+│       ├── slide09_return_histogram_fit.png
+│       ├── slide14_qq_diagnostic_plot.png
+│       ├── slide15_drawdown_risk.png
+│       ├── slide15_period_comparison.png
+│       ├── slide16_clt_convergence.png
+│       └── slides_10/                 # Extracted graphics from 10-slide presentation
+│
+├── PROJECT_REPORT.md                  # Comprehensive B.Tech Project Report (Markdown)
+├── RESEARCH_PAPER.md                  # Formal Academic Research Paper (Markdown)
 │
 └── docs/ (Root markdown documents)
     ├── ARCHITECTURE.md                # System component diagram & data flow
@@ -429,15 +448,18 @@ tests/test_sampling.py::test_clt_explorer_variance_decay PASSED
   *KLH University, Hyderabad (Koneru Lakshmaiah Education Foundation)*
 
 ### Academic Context
+* **Course:** **Course 24AD3107 — Data Science Project**  
 * **Degree:** Bachelor of Technology (B.Tech) in Computer Science and Engineering  
 * **Academic Year:** 2026–2027 | Year III, Semester I  
 * **Institution:** KLH University, Bachupally-Bowrampet Campus, Hyderabad, Telangana – 500 043  
 
-### Academic Deliverables
-- 📄 [Formal B.Tech Project Report](PROJECT_REPORT.md)
-- 📝 [Academic Research Paper](RESEARCH_PAPER.md)
-- 📊 [Final Project Review Presentation Content Pack (22 Slides)](presentation/PRESENTATION_CONTENT_PACK.md)
-- 📈 [Publication Visual Assets](presentation/assets/)
+### Academic Deliverables & Presentation Decks
+- 📄 [Formal B.Tech Project Report (Markdown)](PROJECT_REPORT.md) | [Word Document (.docx)](presentation/docs/Stock_Market_Distribution_Analyzer_BTech_Project_Report.docx)
+- 📝 [Academic Research Paper (Markdown)](RESEARCH_PAPER.md) | [Word Document (.docx)](presentation/docs/Stock_Market_Distribution_Analyzer_Research_Paper.docx)
+- 📊 [Final Project Review Deck (22 Slides Markdown)](presentation/PRESENTATION_CONTENT_PACK.md) | [PowerPoint (.pptx)](presentation/pptx/Final_Project_Review_22_Slides.pptx)
+- 🖥️ [Research Gap & Distribution Analysis (10 Slides Markdown)](presentation/PRESENTATION_DECK_10_SLIDES.md) | [PowerPoint (.pptx)](presentation/pptx/Stock_Market_Return_Distribution_Analyzer_10_Slides.pptx)
+- 📑 [Course 24AD3107 Project Review (9 Slides Markdown)](presentation/PRESENTATION_DECK_9_SLIDES.md) | [PowerPoint (.pptx)](presentation/pptx/Course_24AD3107_Project_Review_9_Slides.pptx)
+- 📈 [Publication Visual Assets](presentation/assets/) & [10-Slide Graphics](presentation/assets/slides_10/)
 
 ---
 
