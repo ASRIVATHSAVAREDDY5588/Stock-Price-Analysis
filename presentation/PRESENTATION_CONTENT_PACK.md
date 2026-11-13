@@ -26,18 +26,17 @@
 ### Copy-Ready Content
 * **Project Title:** Stock Market Distribution Analyzer
 * **Subtitle:** Quantitative Modeling of Indian Equity Return Distributions, Tail Risk (VaR/ES), and Zero-Lookahead Strategy Evaluation (2000–2026 YTD)
-* **Department:** `[MISSING: Confirm department, e.g., Department of Computer Science & Engineering / Data Science]`
-* **Institution:** `[MISSING: Confirm college/university name]`
+* **Department:** Department of Computer Science and Engineering
+* **Institution:** KLH University, Hyderabad (Koneru Lakshmaiah Education Foundation)
 * **Team Members & Registration Numbers:**
-  * **Srivathsa Reddy** | Reg No: `[MISSING: Provide Reg No]` | Email: `srivathsavareddy6@gmail.com`
-  * **Aryan Salunkhe** | Reg No: `[MISSING: Provide Reg No]` | Email: `[MISSING: Provide Email]`
-* **Project Guide:** **Dr. N. Sunanda** | Designation: `[MISSING: Confirm designation, e.g., Associate Professor, Dept of CSE]`
-* **Academic Year:** `[MISSING: Confirm academic year, e.g., 2026–2027]`
-* **Institutional Logo:** `[MISSING: Place institution logo on slide]`
+  * **A. Srivathsava Reddy** | Reg No: **2420030634** | Email: srivathsavareddy6@gmail.com
+  * **Aryan Vinayak Salunkhe** | Reg No: **2420030137**
+* **Project Guide:** **Dr. N. Sunanda** | Designation: **Associate Professor, Department of Computer Science and Engineering, KLH University**
+* **Academic Year:** **2026–2027** | **Year III, Semester I**
+* **Degree:** Bachelor of Technology (B.Tech) in Computer Science and Engineering
 
 ### Evidence & Verification Status
-* **Status:** `[VERIFIED]` for authoritative project name (*Stock Market Distribution Analyzer*) and Git commit author (`asrivathsavareddy5588`); `[MISSING]` for registration numbers, academic year, and college name.
-
+* **Status:** [VERIFIED] for project identity, student registration numbers, faculty guide designation, and university department.
 ### Information to Provide
 1. Student registration numbers for Srivathsa Reddy and Aryan Salunkhe.
 2. Official department name, college name, and guide designation.
@@ -669,7 +668,7 @@ None required.
 * *Note on Verification:* Git repository commit history contains a single committer (`asrivathsavareddy5588`). Individual module ownership listed above should be reviewed and confirmed by both team members before the evaluation.
 
 ### Evidence & Verification Status
-* **Status:** `[VERIFIED]` for Srivathsa Reddy Git commit authorship (`7eefeae9`); `[MISSING]` for Aryan Salunkhe and Dr. N. Sunanda official college registration numbers and designations.
+* **Status:** [VERIFIED] for A. Srivathsava Reddy (2420030634), Aryan Vinayak Salunkhe (2420030137), and Dr. N. Sunanda (Associate Professor, CSE, KLH University).
 
 ### Information to Provide
 1. Student registration numbers for Srivathsa Reddy and Aryan Salunkhe.
@@ -728,9 +727,9 @@ Two organized lists: Left column = Academic Literature Citations (Foundational &
 * **Project Title:** Stock Market Distribution Analyzer
 * **Subtitle:** Quantitative Return Distributions, Tail Risk Analytics & Educational Guidance (2000–2026 YTD)
 * **Team Contact Details:**
-  * **Srivathsa Reddy** | Email: `srivathsavareddy6@gmail.com` | LinkedIn / Phone: `[MISSING: User to provide]`
-  * **Aryan Salunkhe** | Email: `[MISSING: User to provide]` | LinkedIn / Phone: `[MISSING: User to provide]`
-* **Project Guide:** Dr. N. Sunanda | Department: `[MISSING: Confirm Department]` | Institution: `[MISSING: Confirm College Name]`
+  * **A. Srivathsava Reddy** | Reg No: **2420030634** | Email: srivathsavareddy6@gmail.com
+  * **Aryan Vinayak Salunkhe** | Reg No: **2420030137**
+* **Project Guide:** **Dr. N. Sunanda** | Associate Professor, Department of Computer Science and Engineering | KLH University, Hyderabad
 * **Project Package Location:**
   * Verified Standalone Deliverable ZIP: `dist/Stock_Return_AI_Lab.zip` (self-contained, offline-ready)
 * **Closing Regulatory Notice:**

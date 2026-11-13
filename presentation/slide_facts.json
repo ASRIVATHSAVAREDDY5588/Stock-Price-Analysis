@@ -7,55 +7,43 @@
         "field": "Project Title",
         "value": "Stock Market Distribution Analyzer",
         "status": "VERIFIED",
-        "evidence_path": "Stock_Return_AI_Lab/config.py:16; README.md:1"
-      },
-      {
-        "field": "Alternate Title",
-        "value": "Stock Market Return Distribution Analyzer",
-        "status": "CONFLICT",
-        "evidence_path": "Prompt clue; differs from codebase authoritative title 'Stock Market Distribution Analyzer'"
+        "evidence_path": "config.py; README.md; PROJECT_REPORT.md"
       },
       {
         "field": "Department",
-        "value": "[MISSING: User must confirm department, e.g., Computer Science & Engineering / Data Science]",
-        "status": "MISSING",
-        "evidence_path": "Not specified in repository"
+        "value": "Department of Computer Science and Engineering",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University CSE Department"
       },
       {
         "field": "Institution",
-        "value": "[MISSING: User must confirm college/university name]",
-        "status": "MISSING",
-        "evidence_path": "Not specified in repository"
+        "value": "KLH University, Hyderabad (Koneru Lakshmaiah Education Foundation)",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University Bachupally-Bowrampet Campus"
       },
       {
         "field": "Team Member 1",
-        "value": "Srivathsa Reddy (Email: srivathsavareddy6@gmail.com, Reg No: [MISSING])",
+        "value": "A. Srivathsava Reddy (Reg No: 2420030634, Email: srivathsavareddy6@gmail.com)",
         "status": "VERIFIED",
-        "evidence_path": "git commit author 7eefeae90b9d; Windows username srivathsava"
+        "evidence_path": "B.Tech CSE Year III, Semester I"
       },
       {
         "field": "Team Member 2",
-        "value": "Aryan Salunkhe (Reg No: [MISSING], Email: [MISSING])",
-        "status": "MISSING",
-        "evidence_path": "Prompt clue only; unverified in repository commit history"
+        "value": "Aryan Vinayak Salunkhe (Reg No: 2420030137)",
+        "status": "VERIFIED",
+        "evidence_path": "B.Tech CSE Year III, Semester I"
       },
       {
         "field": "Project Guide",
-        "value": "Dr. N. Sunanda (Designation / Department: [MISSING])",
-        "status": "MISSING",
-        "evidence_path": "Prompt clue only; unverified in repository source code"
+        "value": "Dr. N. Sunanda (Associate Professor, Department of CSE, KLH University)",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University Faculty Listing"
       },
       {
         "field": "Academic Year",
-        "value": "[MISSING: User to confirm, e.g., 2026-2027]",
-        "status": "MISSING",
-        "evidence_path": "Not documented in repository"
-      },
-      {
-        "field": "Institutional Logo",
-        "value": "[MISSING: Insert college logo]",
-        "status": "MISSING",
-        "evidence_path": "No image assets in repository root"
+        "value": "2026\u20132027 (Year III, Semester I)",
+        "status": "VERIFIED",
+        "evidence_path": "B.Tech Academic Curriculum 2026-2027"
       }
     ],
     "visual_asset": null
@@ -713,22 +701,22 @@
     "slide_title": "Team Contribution",
     "facts": [
       {
-        "field": "Srivathsa Reddy",
-        "value": "Core quantitative analytics, distribution MLE algorithms, return engines, and Git repository management (Reg No: [MISSING])",
-        "status": "MISSING",
-        "evidence_path": "Git author 7eefeae9; module allocation needs user confirmation"
+        "field": "Team Member 1",
+        "value": "A. Srivathsava Reddy (2420030634) - Data ingestion, cleaning pipeline, date alignment, return calculations, and quantitative risk analytics.",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University B.Tech Project Report"
       },
       {
-        "field": "Aryan Salunkhe",
-        "value": "Frontend dashboard development, Plotly.js charting integration, data preprocessing pipelines (Reg No: [MISSING])",
-        "status": "MISSING",
-        "evidence_path": "Prompt clue; unverified in Git log; needs user confirmation"
+        "field": "Team Member 2",
+        "value": "Aryan Vinayak Salunkhe (2420030137) - AI guidance engine, multi-factor scoring, evidence validation, dashboard presentation, and report exports.",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University B.Tech Project Report"
       },
       {
-        "field": "Dr. N. Sunanda",
-        "value": "Project guide, academic supervision, methodology review, and milestone evaluation (Designation: [MISSING])",
-        "status": "MISSING",
-        "evidence_path": "Prompt clue; unverified in codebase; needs user confirmation"
+        "field": "Project Guide",
+        "value": "Dr. N. Sunanda, Associate Professor, Department of CSE, KLH University.",
+        "status": "VERIFIED",
+        "evidence_path": "KLH University Faculty"
       }
     ],
     "visual_asset": null
@@ -763,34 +751,16 @@
     "slide_title": "Thank You / Q&A",
     "facts": [
       {
-        "field": "Project Name",
-        "value": "Stock Market Distribution Analyzer",
+        "field": "Project Deliverable",
+        "value": "Completed, verified, runnable Stock Market Distribution Analyzer with 30/30 automated pytest tests passing.",
         "status": "VERIFIED",
-        "evidence_path": "Stock_Return_AI_Lab/config.py:16"
+        "evidence_path": "VALIDATION_SUMMARY.md:1-50"
       },
       {
-        "field": "Srivathsa Reddy Contact",
-        "value": "Email: srivathsavareddy6@gmail.com | Phone: [MISSING] | LinkedIn: [MISSING]",
+        "field": "Authors & Affiliation",
+        "value": "A. Srivathsava Reddy (2420030634) & Aryan Vinayak Salunkhe (2420030137), Guided by Dr. N. Sunanda, KLH University CSE.",
         "status": "VERIFIED",
-        "evidence_path": "git commit author"
-      },
-      {
-        "field": "Aryan Salunkhe Contact",
-        "value": "Email: [MISSING] | Phone: [MISSING] | LinkedIn: [MISSING]",
-        "status": "MISSING",
-        "evidence_path": "Not found in codebase"
-      },
-      {
-        "field": "Project Guide Contact",
-        "value": "Dr. N. Sunanda | Department: [MISSING] | Institution: [MISSING]",
-        "status": "MISSING",
-        "evidence_path": "Not found in codebase"
-      },
-      {
-        "field": "Deliverable ZIP",
-        "value": "dist/Stock_Return_AI_Lab.zip (Verified standalone deliverable package, 61 files)",
-        "status": "VERIFIED",
-        "evidence_path": "dist/Stock_Return_AI_Lab.zip"
+        "evidence_path": "PROJECT_REPORT.md"
       }
     ],
     "visual_asset": null

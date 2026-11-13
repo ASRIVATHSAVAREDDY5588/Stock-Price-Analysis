@@ -411,5 +411,34 @@ tests/test_sampling.py::test_clt_explorer_variance_decay PASSED
 
 ---
 
-**Author:** [A. Srivathsava Reddy](https://github.com/ASRIVATHSAVAREDDY5588)  
+## 👥 Authors, Guidance & Academic Attribution
+
+### Team Members
+* **A. Srivathsava Reddy** | Registration No: **2420030634**  
+  *Department of Computer Science and Engineering, KLH University, Hyderabad*  
+  GitHub: [@ASRIVATHSAVAREDDY5588](https://github.com/ASRIVATHSAVAREDDY5588) | Email: `srivathsavareddy6@gmail.com`  
+  *Primary Contribution: Historical data ingestion & cleaning pipeline, date alignment algorithms, return and moment formulations, parametric distribution fitting (Normal and Student-$t$ MLE), and downside tail-risk modeling (VaR, Expected Shortfall, Drawdowns).*
+
+* **Aryan Vinayak Salunkhe** | Registration No: **2420030137**  
+  *Department of Computer Science and Engineering, KLH University, Hyderabad*  
+  *Primary Contribution: Explainable AI guidance engine, multi-factor scoring architecture, data-sufficiency safeguards ($N \ge 30$), web dashboard presentation (HTML5/CSS3/Chart.js), interactive analytics, and report export engines.*
+
+### Project Guide
+* **Dr. N. Sunanda**  
+  *Associate Professor, Department of Computer Science and Engineering*  
+  *KLH University, Hyderabad (Koneru Lakshmaiah Education Foundation)*
+
+### Academic Context
+* **Degree:** Bachelor of Technology (B.Tech) in Computer Science and Engineering  
+* **Academic Year:** 2026–2027 | Year III, Semester I  
+* **Institution:** KLH University, Bachupally-Bowrampet Campus, Hyderabad, Telangana – 500 043  
+
+### Academic Deliverables
+- 📄 [Formal B.Tech Project Report](PROJECT_REPORT.md)
+- 📝 [Academic Research Paper](RESEARCH_PAPER.md)
+- 📊 [Final Project Review Presentation Content Pack (22 Slides)](presentation/PRESENTATION_CONTENT_PACK.md)
+- 📈 [Publication Visual Assets](presentation/assets/)
+
+---
+
 **Repository:** [Stock-Price-Analysis](https://github.com/ASRIVATHSAVAREDDY5588/Stock-Price-Analysis)
